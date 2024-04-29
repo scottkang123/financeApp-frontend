@@ -25,3 +25,9 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+## Note ##
+
+1. The latest LTS node version is 20.12.2. Need to switch to LTS version of node to run the app. 
+    example: nvm install 20.12.2   nvm allows you to install and use different node versions
+    
