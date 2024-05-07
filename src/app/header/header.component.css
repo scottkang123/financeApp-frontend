@@ -1,28 +1,62 @@
+
 .navbar {
-  background-color: #333;
-  color: #fff;
+  background-color: #FFFFFF; /* Set default background color to white */
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 1rem;
+  font-family: 'Poppins-Medium';
+
 }
 
 .brand {
-  font-size: 1.5rem;
+  font-size: 48px;
+  font-weight: bold;
+  color: var(--primary-color);
 }
+
 
 .nav-links {
   list-style-type: none;
   display: flex;
+  margin-left: -40rem;
 }
 
 .nav-links li {
-  margin-right: 1rem;
+  margin-top: 2rem;
+  margin-right: 3.5rem;
 }
 
 .nav-links li a {
-  color: #fff;
+  font-size: 24px;
+  color: var(--text-color);
   text-decoration: none;
+  font-family: 'Poppins-Light'; 
+  padding-right: 2rem;
+
 }
 
-/* Add any additional styling here */
+
+.user-actions {
+  display: flex;
+  align-items: center;
+}
+
+.user-actions .login,
+.user-actions .signup-button {
+  font-size: 24px;
+  text-decoration: none; /* Remove underline */
+  font-family: 'Poppins-Medium'; /* Use Poppins-Bold font */
+}
+
+.login{
+  color: var(--primary-color);
+}
+
+.signup-button {
+  background-color: #20303F;
+  color: #FFFFF7;
+  padding: 0.5rem 1.5rem; /* Adjust padding */
+  border-radius: 1px;
+  margin-left: 2rem; /* Add margin between Log In and Sign Up */
+}
