@@ -30,4 +30,6 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 1. The latest LTS node version is 20.12.2. Need to switch to LTS version of node to run the app. 
     example: nvm install 20.12.2   nvm allows you to install and use different node versions
-    
+2. npm i bootstrap@5.3.3
+3. npm install @fortawesome/fontawesome-free
+4. npm i ng-openapi-gen
