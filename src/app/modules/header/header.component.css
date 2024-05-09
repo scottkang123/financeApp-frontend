@@ -9,6 +9,11 @@
 
 }
 
+.navbar .brand a {
+  text-decoration: none; /* Removes underline */
+  color: black; /* Changes color to black */
+}
+
 .brand {
   font-size: 48px;
   font-weight: bold;
