@@ -17,6 +17,9 @@ import { SignupComponent } from './pages/signup/signup.component';
 import { HeaderComponent } from './modules/header/header.component';
 import { LoginComponent } from './pages/login/login.component';
 import { ActivateAccountComponent } from './pages/activate-account/activate-account.component';
+import { UserHomeComponent } from './pages/user-home/user-home.component';
+import { EmptyHeaderComponent } from './modules/empty-header/empty-header.component';
+import { UserHeaderComponent } from './modules/user-header/user-header.component';
 
 
 
@@ -39,7 +42,10 @@ const ngxUiLoaderConfig: NgxUiLoaderConfig = {
     HomeComponent,
     SignupComponent,
     LoginComponent,
-    ActivateAccountComponent
+    ActivateAccountComponent,
+    UserHomeComponent,
+    EmptyHeaderComponent,
+    UserHeaderComponent
   ],
   imports: [
     BrowserModule,
