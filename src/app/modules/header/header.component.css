@@ -1,17 +1,10 @@
-
 .navbar {
-  background-color: #FFFFFF; /* Set default background color to white */
+  background-color: #FFFFFF;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 1rem;
   font-family: 'Poppins-Medium';
-
-}
-
-.navbar .brand a {
-  text-decoration: none; /* Removes underline */
-  color: black; /* Changes color to black */
 }
 
 .brand {
@@ -20,27 +13,33 @@
   color: var(--primary-color);
 }
 
+.brand a {
+  text-decoration: none;
+  color: black;
+}
+
+.nav-center {
+  flex-grow: 1; /* Take up remaining space */
+  text-align: center; /* Center align content */
+}
+
+.nav-center span {
+  font-size: 24px; /* Adjust the font size as needed */
+}
 
 .nav-links {
-  list-style-type: none;
   display: flex;
-  margin-left: -40rem;
+  justify-content: flex-start;
+  margin-left: 2rem;
 }
 
-.nav-links li {
-  margin-top: 2rem;
-  margin-right: 3.5rem;
-}
-
-.nav-links li a {
+.nav-links a {
+  text-decoration: none;
+  font-family: 'Poppins-Light';
   font-size: 24px;
   color: var(--text-color);
-  text-decoration: none;
-  font-family: 'Poppins-Light'; 
-  padding-right: 2rem;
-
+  margin-right: 2rem;
 }
-
 
 .user-actions {
   display: flex;
@@ -50,18 +49,18 @@
 .user-actions .login,
 .user-actions .signup-button {
   font-size: 24px;
-  text-decoration: none; /* Remove underline */
-  font-family: 'Poppins-Medium'; /* Use Poppins-Bold font */
+  text-decoration: none;
+  font-family: 'Poppins-Medium';
 }
 
-.login{
+.login {
   color: var(--primary-color);
 }
 
 .signup-button {
   background-color: #20303F;
   color: #FFFFF7;
-  padding: 0.5rem 1.5rem; /* Adjust padding */
+  padding: 0.5rem 1.5rem;
   border-radius: 1px;
-  margin-left: 2rem; /* Add margin between Log In and Sign Up */
+  margin-left: 1rem;
 }
