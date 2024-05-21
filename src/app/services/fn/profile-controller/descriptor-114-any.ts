@@ -7,11 +7,11 @@ import { StrictHttpResponse } from '../../strict-http-response';
 import { RequestBuilder } from '../../request-builder';
 
 
-export interface Descriptor112$Any$Params {
+export interface Descriptor114$Any$Params {
 }
 
-export function descriptor112$Any(http: HttpClient, rootUrl: string, params?: Descriptor112$Any$Params, context?: HttpContext): Observable<StrictHttpResponse<string>> {
-  const rb = new RequestBuilder(rootUrl, descriptor112$Any.PATH, 'get');
+export function descriptor114$Any(http: HttpClient, rootUrl: string, params?: Descriptor114$Any$Params, context?: HttpContext): Observable<StrictHttpResponse<string>> {
+  const rb = new RequestBuilder(rootUrl, descriptor114$Any.PATH, 'get');
   if (params) {
   }
 
@@ -25,4 +25,4 @@ export function descriptor112$Any(http: HttpClient, rootUrl: string, params?: De
   );
 }
 
-descriptor112$Any.PATH = '/profile/stocks';
+descriptor114$Any.PATH = '/profile/users';

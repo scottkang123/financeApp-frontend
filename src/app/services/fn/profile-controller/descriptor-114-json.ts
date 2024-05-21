@@ -8,11 +8,11 @@ import { RequestBuilder } from '../../request-builder';
 
 import { JsonSchema } from '../../models/json-schema';
 
-export interface Descriptor112$Json$Params {
+export interface Descriptor114$Json$Params {
 }
 
-export function descriptor112$Json(http: HttpClient, rootUrl: string, params?: Descriptor112$Json$Params, context?: HttpContext): Observable<StrictHttpResponse<JsonSchema>> {
-  const rb = new RequestBuilder(rootUrl, descriptor112$Json.PATH, 'get');
+export function descriptor114$Json(http: HttpClient, rootUrl: string, params?: Descriptor114$Json$Params, context?: HttpContext): Observable<StrictHttpResponse<JsonSchema>> {
+  const rb = new RequestBuilder(rootUrl, descriptor114$Json.PATH, 'get');
   if (params) {
   }
 
@@ -26,4 +26,4 @@ export function descriptor112$Json(http: HttpClient, rootUrl: string, params?: D
   );
 }
 
-descriptor112$Json.PATH = '/profile/stocks';
+descriptor114$Json.PATH = '/profile/users';

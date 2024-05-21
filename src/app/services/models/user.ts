@@ -2,6 +2,7 @@
 /* eslint-disable */
 import { GrantedAuthority } from '../models/granted-authority';
 import { Role } from '../models/role';
+import { Stock } from '../models/stock';
 export interface User {
   accountLocked?: boolean;
   accountNonExpired?: boolean;
@@ -19,5 +20,6 @@ export interface User {
   name?: string;
   password?: string;
   roles?: Array<Role>;
+  stocks?: Array<Stock>;
   username?: string;
 }

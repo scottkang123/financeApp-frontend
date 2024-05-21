@@ -1,11 +1,13 @@
 export { ProfileControllerService } from './services/profile-controller.service';
 export { RoleEntityControllerService } from './services/role-entity-controller.service';
 export { RoleSearchControllerService } from './services/role-search-controller.service';
+export { StockEntityControllerService } from './services/stock-entity-controller.service';
 export { TokenEntityControllerService } from './services/token-entity-controller.service';
 export { TokenSearchControllerService } from './services/token-search-controller.service';
 export { TokenPropertyReferenceControllerService } from './services/token-property-reference-controller.service';
 export { UserEntityControllerService } from './services/user-entity-controller.service';
 export { UserSearchControllerService } from './services/user-search-controller.service';
 export { UserPropertyReferenceControllerService } from './services/user-property-reference-controller.service';
+export { StockControllerService } from './services/stock-controller.service';
 export { AuthenticationService } from './services/authentication.service';
 export { UserControllerService } from './services/user-controller.service';

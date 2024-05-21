@@ -18,5 +18,6 @@ export interface UserRequestBody {
   name?: string;
   password?: string;
   roles?: Array<string>;
+  stocks?: Array<string>;
   username?: string;
 }

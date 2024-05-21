@@ -7,12 +7,14 @@ import { ApiConfiguration, ApiConfigurationParams } from './api-configuration';
 import { ProfileControllerService } from './services/profile-controller.service';
 import { RoleEntityControllerService } from './services/role-entity-controller.service';
 import { RoleSearchControllerService } from './services/role-search-controller.service';
+import { StockEntityControllerService } from './services/stock-entity-controller.service';
 import { TokenEntityControllerService } from './services/token-entity-controller.service';
 import { TokenSearchControllerService } from './services/token-search-controller.service';
 import { TokenPropertyReferenceControllerService } from './services/token-property-reference-controller.service';
 import { UserEntityControllerService } from './services/user-entity-controller.service';
 import { UserSearchControllerService } from './services/user-search-controller.service';
 import { UserPropertyReferenceControllerService } from './services/user-property-reference-controller.service';
+import { StockControllerService } from './services/stock-controller.service';
 import { AuthenticationService } from './services/authentication.service';
 import { UserControllerService } from './services/user-controller.service';
 
@@ -27,12 +29,14 @@ import { UserControllerService } from './services/user-controller.service';
     ProfileControllerService,
     RoleEntityControllerService,
     RoleSearchControllerService,
+    StockEntityControllerService,
     TokenEntityControllerService,
     TokenSearchControllerService,
     TokenPropertyReferenceControllerService,
     UserEntityControllerService,
     UserSearchControllerService,
     UserPropertyReferenceControllerService,
+    StockControllerService,
     AuthenticationService,
     UserControllerService,
     ApiConfiguration
