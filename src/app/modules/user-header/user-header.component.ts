@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { UserControllerService } from '../../services/services';
 
 @Component({
   selector: 'app-user-header',
@@ -7,14 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UserHeaderComponent implements OnInit{
 
-  constructor(){}
+  liveClock: string = '';
+  userName: string = '';
+
+  constructor(private userService: UserControllerService) {}
 
   ngOnInit(): void {
     this.updateClock(); // Initialize the clock immediately
     setInterval(() => this.updateClock(), 1000); // Update the clock every second
+    this.getUserName();
   }
-  
-  liveClock: string = '';
+
 
   updateClock(): void {
     const now = new Date();
@@ -27,6 +31,21 @@ export class UserHeaderComponent implements OnInit{
 
     this.liveClock = `${hours}:${minutes}:${seconds} ${month}-${day}-${year}`;
   }
+
+  private getUserName() {
+    this.userService.getUserName({
+    })
+      .subscribe({
+        next: (response) => {
+          this.userName = response['name'];
+        
+        },
+        error: (err) => {
+          console.error("Failed to fetch user name: ", err);
+        }
+      });
+  }
+
 
 
 }

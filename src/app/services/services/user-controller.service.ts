@@ -9,8 +9,8 @@ import { BaseService } from '../base-service';
 import { ApiConfiguration } from '../api-configuration';
 import { StrictHttpResponse } from '../strict-http-response';
 
-import { addPerson } from '../fn/user-controller/add-person';
-import { AddPerson$Params } from '../fn/user-controller/add-person';
+import { getUserName } from '../fn/user-controller/get-user-name';
+import { GetUserName$Params } from '../fn/user-controller/get-user-name';
 
 @Injectable({ providedIn: 'root' })
 export class UserControllerService extends BaseService {
@@ -18,28 +18,36 @@ export class UserControllerService extends BaseService {
     super(config, http);
   }
 
-  /** Path part for operation `addPerson()` */
-  static readonly AddPersonPath = '/addUser';
+  /** Path part for operation `getUserName()` */
+  static readonly GetUserNamePath = '/user/name';
 
   /**
    * This method provides access to the full `HttpResponse`, allowing access to response headers.
-   * To access only the response body, use `addPerson()` instead.
+   * To access only the response body, use `getUserName()` instead.
    *
-   * This method sends `application/json` and handles request body of type `application/json`.
+   * This method doesn't expect any request body.
    */
-  addPerson$Response(params: AddPerson$Params, context?: HttpContext): Observable<StrictHttpResponse<void>> {
-    return addPerson(this.http, this.rootUrl, params, context);
+  getUserName$Response(params?: GetUserName$Params, context?: HttpContext): Observable<StrictHttpResponse<{
+[key: string]: string;
+}>> {
+    return getUserName(this.http, this.rootUrl, params, context);
   }
 
   /**
    * This method provides access only to the response body.
-   * To access the full response (for headers, for example), `addPerson$Response()` instead.
+   * To access the full response (for headers, for example), `getUserName$Response()` instead.
    *
-   * This method sends `application/json` and handles request body of type `application/json`.
+   * This method doesn't expect any request body.
    */
-  addPerson(params: AddPerson$Params, context?: HttpContext): Observable<void> {
-    return this.addPerson$Response(params, context).pipe(
-      map((r: StrictHttpResponse<void>): void => r.body)
+  getUserName(params?: GetUserName$Params, context?: HttpContext): Observable<{
+[key: string]: string;
+}> {
+    return this.getUserName$Response(params, context).pipe(
+      map((r: StrictHttpResponse<{
+[key: string]: string;
+}>): {
+[key: string]: string;
+} => r.body)
     );
   }
 

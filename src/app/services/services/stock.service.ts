@@ -9,18 +9,18 @@ import { BaseService } from '../base-service';
 import { ApiConfiguration } from '../api-configuration';
 import { StrictHttpResponse } from '../strict-http-response';
 
-import { fetchAndSaveStocks } from '../fn/stock-controller/fetch-and-save-stocks';
-import { FetchAndSaveStocks$Params } from '../fn/stock-controller/fetch-and-save-stocks';
+import { fetchAndSaveStocks } from '../fn/stock/fetch-and-save-stocks';
+import { FetchAndSaveStocks$Params } from '../fn/stock/fetch-and-save-stocks';
 import { StockDto } from '../models/stock-dto';
 
 @Injectable({ providedIn: 'root' })
-export class StockControllerService extends BaseService {
+export class StockService extends BaseService {
   constructor(config: ApiConfiguration, http: HttpClient) {
     super(config, http);
   }
 
   /** Path part for operation `fetchAndSaveStocks()` */
-  static readonly FetchAndSaveStocksPath = '/fetch-and-save-stocks';
+  static readonly FetchAndSaveStocksPath = '/stock/fetch-and-save-stocks';
 
   /**
    * This method provides access to the full `HttpResponse`, allowing access to response headers.

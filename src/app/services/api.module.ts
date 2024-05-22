@@ -14,7 +14,7 @@ import { TokenPropertyReferenceControllerService } from './services/token-proper
 import { UserEntityControllerService } from './services/user-entity-controller.service';
 import { UserSearchControllerService } from './services/user-search-controller.service';
 import { UserPropertyReferenceControllerService } from './services/user-property-reference-controller.service';
-import { StockControllerService } from './services/stock-controller.service';
+import { StockService } from './services/stock.service';
 import { AuthenticationService } from './services/authentication.service';
 import { UserControllerService } from './services/user-controller.service';
 
@@ -36,7 +36,7 @@ import { UserControllerService } from './services/user-controller.service';
     UserEntityControllerService,
     UserSearchControllerService,
     UserPropertyReferenceControllerService,
-    StockControllerService,
+    StockService,
     AuthenticationService,
     UserControllerService,
     ApiConfiguration

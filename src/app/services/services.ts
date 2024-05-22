@@ -8,6 +8,6 @@ export { TokenPropertyReferenceControllerService } from './services/token-proper
 export { UserEntityControllerService } from './services/user-entity-controller.service';
 export { UserSearchControllerService } from './services/user-search-controller.service';
 export { UserPropertyReferenceControllerService } from './services/user-property-reference-controller.service';
-export { StockControllerService } from './services/stock-controller.service';
+export { StockService } from './services/stock.service';
 export { AuthenticationService } from './services/authentication.service';
 export { UserControllerService } from './services/user-controller.service';
