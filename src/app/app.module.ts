@@ -22,6 +22,7 @@ import { ActivateAccountComponent } from './pages/activate-account/activate-acco
 import { UserHomeComponent } from './pages/user-home/user-home.component';
 import { EmptyHeaderComponent } from './modules/empty-header/empty-header.component';
 import { UserHeaderComponent } from './modules/user-header/user-header.component';
+import { SearchBarComponent } from "./search-bar/search-bar.component";
 
 
 
@@ -38,30 +39,30 @@ const ngxUiLoaderConfig: NgxUiLoaderConfig = {
 
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    HeaderComponent,
-    HomeComponent,
-    SignupComponent,
-    LoginComponent,
-    ActivateAccountComponent,
-    UserHomeComponent,
-    EmptyHeaderComponent,
-    UserHeaderComponent
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    CommonModule,
-    MaterialModule,
-    HttpClientModule,
-    ReactiveFormsModule,
-    FormsModule,
-    CodeInputModule,
-    NgxUiLoaderModule.forRoot(ngxUiLoaderConfig)
-  ],
-  
-  providers: [provideHttpClient(withInterceptors([httpTokenInterceptor]))],  //HttpClient],   //multi because spring has its own interceptors as well but no need to provide if using functional approach to implement the interceptor
-  bootstrap: [AppComponent]
+    declarations: [
+        AppComponent,
+        HeaderComponent,
+        HomeComponent,
+        SignupComponent,
+        LoginComponent,
+        ActivateAccountComponent,
+        UserHomeComponent,
+        EmptyHeaderComponent,
+        UserHeaderComponent,
+        SearchBarComponent
+    ],
+    providers: [provideHttpClient(withInterceptors([httpTokenInterceptor]))], //HttpClient],   //multi because spring has its own interceptors as well but no need to provide if using functional approach to implement the interceptor
+    bootstrap: [AppComponent],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        CommonModule,
+        MaterialModule,
+        HttpClientModule,
+        ReactiveFormsModule,
+        FormsModule,
+        CodeInputModule,
+        NgxUiLoaderModule.forRoot(ngxUiLoaderConfig)
+    ]
 })
 export class AppModule { }
