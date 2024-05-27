@@ -528,6 +528,38 @@
                 }
             }
         },
+        "/stocks/search/findbyNameContainingKeywordIgnoreCase": {
+            "get": {
+                "tags": [
+                    "stock-search-controller"
+                ],
+                "operationId": "executeSearch-stock-get",
+                "parameters": [
+                    {
+                        "name": "keyword",
+                        "in": "query",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/hal+json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/CollectionModelEntityModelStock"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                }
+            }
+        },
         "/stocks/{id}": {
             "get": {
                 "tags": [
@@ -2108,6 +2140,39 @@
                 }
             }
         },
+        "/search/stock/{query}": {
+            "get": {
+                "tags": [
+                    "Search"
+                ],
+                "operationId": "getSearchStockResult",
+                "parameters": [
+                    {
+                        "name": "query",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/hal+json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
         "/auth/activate-account": {
             "get": {
                 "tags": [
@@ -2291,6 +2356,25 @@
                     }
                 }
             },
+            "CollectionModelEntityModelStock": {
+                "type": "object",
+                "properties": {
+                    "_embedded": {
+                        "type": "object",
+                        "properties": {
+                            "stocks": {
+                                "type": "array",
+                                "items": {
+                                    "$ref": "#/components/schemas/EntityModelStock"
+                                }
+                            }
+                        }
+                    },
+                    "_links": {
+                        "$ref": "#/components/schemas/Links"
+                    }
+                }
+            },
             "GrantedAuthority": {
                 "type": "object",
                 "properties": {
@@ -2422,6 +2506,66 @@
                     }
                 }
             },
+            "PagedModelEntityModelUser": {
+                "type": "object",
+                "properties": {
+                    "_embedded": {
+                        "type": "object",
+                        "properties": {
+                            "users": {
+                                "type": "array",
+                                "items": {
+                                    "$ref": "#/components/schemas/EntityModelUser"
+                                }
+                            }
+                        }
+                    },
+                    "_links": {
+                        "$ref": "#/components/schemas/Links"
+                    },
+                    "page": {
+                        "$ref": "#/components/schemas/PageMetadata"
+                    }
+                }
+            },
+            "CollectionModelStock": {
+                "type": "object",
+                "properties": {
+                    "_embedded": {
+                        "type": "object",
+                        "properties": {
+                            "stocks": {
+                                "type": "array",
+                                "items": {
+                                    "$ref": "#/components/schemas/StockResponse"
+                                }
+                            }
+                        }
+                    },
+                    "_links": {
+                        "$ref": "#/components/schemas/Links"
+                    }
+                }
+            },
+            "CollectionModelRole": {
+                "type": "object",
+                "properties": {
+                    "_embedded": {
+                        "type": "object",
+                        "properties": {
+                            "roles": {
+                                "type": "array",
+                                "items": {
+                                    "$ref": "#/components/schemas/RoleResponse"
+                                }
+                            }
+                        }
+                    },
+                    "_links": {
+                        "$ref": "#/components/schemas/Links"
+                    }
+                }
+            },
             "EntityModelRole": {
                 "type": "object",
                 "properties": {
@@ -2460,66 +2604,6 @@
                     },
                     "page": {
                         "$ref": "#/components/schemas/PageMetadata"
-                    }
-                }
-            },
-            "PagedModelEntityModelUser": {
-                "type": "object",
-                "properties": {
-                    "_embedded": {
-                        "type": "object",
-                        "properties": {
-                            "users": {
-                                "type": "array",
-                                "items": {
-                                    "$ref": "#/components/schemas/EntityModelUser"
-                                }
-                            }
-                        }
-                    },
-                    "_links": {
-                        "$ref": "#/components/schemas/Links"
-                    },
-                    "page": {
-                        "$ref": "#/components/schemas/PageMetadata"
-                    }
-                }
-            },
-            "CollectionModelRole": {
-                "type": "object",
-                "properties": {
-                    "_embedded": {
-                        "type": "object",
-                        "properties": {
-                            "roles": {
-                                "type": "array",
-                                "items": {
-                                    "$ref": "#/components/schemas/RoleResponse"
-                                }
-                            }
-                        }
-                    },
-                    "_links": {
-                        "$ref": "#/components/schemas/Links"
-                    }
-                }
-            },
-            "CollectionModelStock": {
-                "type": "object",
-                "properties": {
-                    "_embedded": {
-                        "type": "object",
-                        "properties": {
-                            "stocks": {
-                                "type": "array",
-                                "items": {
-                                    "$ref": "#/components/schemas/StockResponse"
-                                }
-                            }
-                        }
-                    },
-                    "_links": {
-                        "$ref": "#/components/schemas/Links"
                     }
                 }
             },

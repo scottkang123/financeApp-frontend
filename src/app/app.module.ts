@@ -16,13 +16,13 @@ import {CodeInputModule} from "angular-code-input";
 
 import { HomeComponent } from './pages/home/home.component';
 import { SignupComponent } from './pages/signup/signup.component';
-import { HeaderComponent } from './modules/header/header.component';
+import { HeaderComponent } from './modules/header/login-header/login-header.component';
 import { LoginComponent } from './pages/login/login.component';
 import { ActivateAccountComponent } from './pages/activate-account/activate-account.component';
 import { UserHomeComponent } from './pages/user-home/user-home.component';
-import { EmptyHeaderComponent } from './modules/empty-header/empty-header.component';
-import { UserHeaderComponent } from './modules/user-header/user-header.component';
-import { SearchBarComponent } from "./search-bar/search-bar.component";
+import { EmptyHeaderComponent } from './modules/header/empty-header/empty-header.component';
+import { UserHeaderComponent } from './modules/header/user-header/user-header.component';
+import { SearchBarComponent } from "./modules/search-bar/search-bar.component";
 
 
 

@@ -8,6 +8,7 @@ import { ProfileControllerService } from './services/profile-controller.service'
 import { RoleEntityControllerService } from './services/role-entity-controller.service';
 import { RoleSearchControllerService } from './services/role-search-controller.service';
 import { StockEntityControllerService } from './services/stock-entity-controller.service';
+import { StockSearchControllerService } from './services/stock-search-controller.service';
 import { TokenEntityControllerService } from './services/token-entity-controller.service';
 import { TokenSearchControllerService } from './services/token-search-controller.service';
 import { TokenPropertyReferenceControllerService } from './services/token-property-reference-controller.service';
@@ -17,6 +18,7 @@ import { UserPropertyReferenceControllerService } from './services/user-property
 import { StockService } from './services/stock.service';
 import { AuthenticationService } from './services/authentication.service';
 import { UserControllerService } from './services/user-controller.service';
+import { SearchService } from './services/search.service';
 
 /**
  * Module that provides all services and configuration.
@@ -30,6 +32,7 @@ import { UserControllerService } from './services/user-controller.service';
     RoleEntityControllerService,
     RoleSearchControllerService,
     StockEntityControllerService,
+    StockSearchControllerService,
     TokenEntityControllerService,
     TokenSearchControllerService,
     TokenPropertyReferenceControllerService,
@@ -39,6 +42,7 @@ import { UserControllerService } from './services/user-controller.service';
     StockService,
     AuthenticationService,
     UserControllerService,
+    SearchService,
     ApiConfiguration
   ],
 })

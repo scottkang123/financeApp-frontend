@@ -2,6 +2,7 @@ export { ProfileControllerService } from './services/profile-controller.service'
 export { RoleEntityControllerService } from './services/role-entity-controller.service';
 export { RoleSearchControllerService } from './services/role-search-controller.service';
 export { StockEntityControllerService } from './services/stock-entity-controller.service';
+export { StockSearchControllerService } from './services/stock-search-controller.service';
 export { TokenEntityControllerService } from './services/token-entity-controller.service';
 export { TokenSearchControllerService } from './services/token-search-controller.service';
 export { TokenPropertyReferenceControllerService } from './services/token-property-reference-controller.service';
@@ -11,3 +12,4 @@ export { UserPropertyReferenceControllerService } from './services/user-property
 export { StockService } from './services/stock.service';
 export { AuthenticationService } from './services/authentication.service';
 export { UserControllerService } from './services/user-controller.service';
+export { SearchService } from './services/search.service';

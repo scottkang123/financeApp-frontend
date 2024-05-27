@@ -3,6 +3,7 @@
 export { AbstractJsonSchemaPropertyObject } from './models/abstract-json-schema-property-object';
 export { AuthenticatedResponse } from './models/authenticated-response';
 export { AuthenticationRequest } from './models/authentication-request';
+export { CollectionModelEntityModelStock } from './models/collection-model-entity-model-stock';
 export { CollectionModelObject } from './models/collection-model-object';
 export { CollectionModelRole } from './models/collection-model-role';
 export { CollectionModelStock } from './models/collection-model-stock';

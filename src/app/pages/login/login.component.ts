@@ -30,6 +30,8 @@ export class LoginComponent {
         //save the token
         this.tokenService.token = res.token as string;
         this.router.navigate(['user_home']);
+        console.log(this.tokenService.token);
+        
       },
       error: (err) => {
         console.log(err);
