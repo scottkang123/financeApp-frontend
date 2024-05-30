@@ -1,17 +1,18 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { HomeComponent } from './pages/home/home.component';
-import { LoginComponent } from './pages/login/login.component';
-import { SignupComponent } from './pages/signup/signup.component';
-import { ActivateAccountComponent } from './pages/activate-account/activate-account.component';
-import { UserHomeComponent } from './pages/user-home/user-home.component';
+import { HomeComponent } from './pages/public/home/home.component';
+import { LoginComponent } from './auth/login/login.component';
+import { SignupComponent } from './auth/signup/signup.component';
+import { UserHomeComponent } from './pages/protected/user-home/user-home.component';
+//import { authGuard } from './services/guard/auth.guard';
+import { authGuard } from './services/guard/auth.guard';
+import { noAuthGuard } from './services/guard/no-auth.guard';
 
 const routes: Routes = [
-  { path: '', component: HomeComponent },
-  { path: 'login', component: LoginComponent },
-  { path: 'signup', component: SignupComponent },
-  { path: 'activate-account', component: ActivateAccountComponent },
-  { path: 'user_home', component: UserHomeComponent }
+  { path: '', component: HomeComponent, canActivate: [noAuthGuard] },
+  { path: 'login', component: LoginComponent, canActivate: [noAuthGuard] },
+  { path: 'signup', component: SignupComponent, canActivate: [noAuthGuard] },
+  { path: 'user-home', component: UserHomeComponent, canActivate: [authGuard] },
 ];
 
 @NgModule({

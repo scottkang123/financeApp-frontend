@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UserControllerService } from '../../../services/services';
+import { KeycloakService } from '../../../services/keycloak/keycloak.service';
 
 @Component({
   selector: 'app-user-header',
@@ -11,7 +12,8 @@ export class UserHeaderComponent implements OnInit{
   liveClock: string = '';
   userName: string = '';
 
-  constructor(private userService: UserControllerService) {}
+  constructor(private userService: UserControllerService, private keycloakSerice : KeycloakService
+  ) {}
 
   ngOnInit(): void {
     this.updateClock(); // Initialize the clock immediately
@@ -46,6 +48,10 @@ export class UserHeaderComponent implements OnInit{
       });
   }
 
-
+  async logout() {
+    await this.keycloakSerice.logout();
+    console.log("the user should be loggedout");
+    
+  }
 
 }

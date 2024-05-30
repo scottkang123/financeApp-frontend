@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
-import { SignupComponent } from '../signup/signup.component';
+import { SignupComponent } from '../../../auth/signup/signup.component';
 
 @Component({
   selector: 'app-home',

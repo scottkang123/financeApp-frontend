@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { APP_INITIALIZER, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -14,15 +14,15 @@ import { FormsModule } from '@angular/forms'; // Import FormsModule -- this is u
 import {CodeInputModule} from "angular-code-input";
 
 
-import { HomeComponent } from './pages/home/home.component';
-import { SignupComponent } from './pages/signup/signup.component';
-import { HeaderComponent } from './modules/header/login-header/login-header.component';
-import { LoginComponent } from './pages/login/login.component';
-import { ActivateAccountComponent } from './pages/activate-account/activate-account.component';
-import { UserHomeComponent } from './pages/user-home/user-home.component';
-import { EmptyHeaderComponent } from './modules/header/empty-header/empty-header.component';
-import { UserHeaderComponent } from './modules/header/user-header/user-header.component';
-import { SearchBarComponent } from "./modules/search-bar/search-bar.component";
+import { HomeComponent } from './pages/public/home/home.component';
+import { SignupComponent } from './auth/signup/signup.component';
+import { HeaderComponent } from './components/header/login-header/login-header.component';
+import { LoginComponent } from './auth/login/login.component';
+import { UserHomeComponent } from './pages/protected/user-home/user-home.component';
+import { EmptyHeaderComponent } from './components/header/empty-header/empty-header.component';
+import { UserHeaderComponent } from './components/header/user-header/user-header.component';
+import { SearchBarComponent } from "./components/search-bar/search-bar.component";
+import { KeycloakService } from './services/keycloak/keycloak.service';
 
 
 
@@ -37,7 +37,9 @@ const ngxUiLoaderConfig: NgxUiLoaderConfig = {
   hasProgressBar:false
 }
 
-
+export function kcFactory(kcService: KeycloakService){
+    return () => kcService.init();
+}
 @NgModule({
     declarations: [
         AppComponent,
@@ -45,13 +47,20 @@ const ngxUiLoaderConfig: NgxUiLoaderConfig = {
         HomeComponent,
         SignupComponent,
         LoginComponent,
-        ActivateAccountComponent,
         UserHomeComponent,
         EmptyHeaderComponent,
         UserHeaderComponent,
         SearchBarComponent
     ],
-    providers: [provideHttpClient(withInterceptors([httpTokenInterceptor]))], //HttpClient],   //multi because spring has its own interceptors as well but no need to provide if using functional approach to implement the interceptor
+    providers: [
+        provideHttpClient(withInterceptors([httpTokenInterceptor])),
+        {
+            provide:APP_INITIALIZER,
+            deps: [KeycloakService],
+            useFactory: kcFactory,
+            multi: true
+        }
+    ], //HttpClient],   //multi because spring has its own interceptors as well but no need to provide if using functional approach to implement the interceptor
     bootstrap: [AppComponent],
     imports: [
         BrowserModule,

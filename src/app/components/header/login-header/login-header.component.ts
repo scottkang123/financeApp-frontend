@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { KeycloakService } from '../../../services/keycloak/keycloak.service';
 
 
 @Component({
@@ -8,7 +9,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit{
 
-  constructor(){}
+  constructor(
+  ){}
   
   liveClock: string = '';
   
@@ -28,6 +30,7 @@ export class HeaderComponent implements OnInit{
 
     this.liveClock = `${hours}:${minutes}:${seconds} ${month}-${day}-${year}`;
   }
+
 
 }
 
