@@ -9,11 +9,11 @@ import { BaseService } from '../base-service';
 import { ApiConfiguration } from '../api-configuration';
 import { StrictHttpResponse } from '../strict-http-response';
 
-import { getUserName } from '../fn/user-controller/get-user-name';
-import { GetUserName$Params } from '../fn/user-controller/get-user-name';
+import { getUserName } from '../fn/user/get-user-name';
+import { GetUserName$Params } from '../fn/user/get-user-name';
 
 @Injectable({ providedIn: 'root' })
-export class UserControllerService extends BaseService {
+export class UserService extends BaseService {
   constructor(config: ApiConfiguration, http: HttpClient) {
     super(config, http);
   }
@@ -27,9 +27,7 @@ export class UserControllerService extends BaseService {
    *
    * This method doesn't expect any request body.
    */
-  getUserName$Response(params?: GetUserName$Params, context?: HttpContext): Observable<StrictHttpResponse<{
-[key: string]: string;
-}>> {
+  getUserName$Response(params?: GetUserName$Params, context?: HttpContext): Observable<StrictHttpResponse<string>> {
     return getUserName(this.http, this.rootUrl, params, context);
   }
 
@@ -39,15 +37,9 @@ export class UserControllerService extends BaseService {
    *
    * This method doesn't expect any request body.
    */
-  getUserName(params?: GetUserName$Params, context?: HttpContext): Observable<{
-[key: string]: string;
-}> {
+  getUserName(params?: GetUserName$Params, context?: HttpContext): Observable<string> {
     return this.getUserName$Response(params, context).pipe(
-      map((r: StrictHttpResponse<{
-[key: string]: string;
-}>): {
-[key: string]: string;
-} => r.body)
+      map((r: StrictHttpResponse<string>): string => r.body)
     );
   }
 

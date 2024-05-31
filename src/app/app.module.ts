@@ -15,7 +15,6 @@ import {CodeInputModule} from "angular-code-input";
 
 
 import { HomeComponent } from './pages/public/home/home.component';
-import { SignupComponent } from './auth/signup/signup.component';
 import { HeaderComponent } from './components/header/login-header/login-header.component';
 import { LoginComponent } from './auth/login/login.component';
 import { UserHomeComponent } from './pages/protected/user-home/user-home.component';
@@ -45,7 +44,6 @@ export function kcFactory(kcService: KeycloakService){
         AppComponent,
         HeaderComponent,
         HomeComponent,
-        SignupComponent,
         LoginComponent,
         UserHomeComponent,
         EmptyHeaderComponent,

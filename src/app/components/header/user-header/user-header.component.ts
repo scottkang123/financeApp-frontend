@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { UserControllerService } from '../../../services/services';
+import { UserService } from '../../../services/services';
 import { KeycloakService } from '../../../services/keycloak/keycloak.service';
 
 @Component({
@@ -12,7 +12,7 @@ export class UserHeaderComponent implements OnInit{
   liveClock: string = '';
   userName: string = '';
 
-  constructor(private userService: UserControllerService, private keycloakSerice : KeycloakService
+  constructor(private userService: UserService, private keycloakSerice : KeycloakService
   ) {}
 
   ngOnInit(): void {
@@ -35,17 +35,29 @@ export class UserHeaderComponent implements OnInit{
   }
 
   private getUserName() {
-    this.userService.getUserName({
-    })
-      .subscribe({
-        next: (response) => {
-          this.userName = response['name'];
+    this.userService.getUserName().subscribe({
+      next: (response) => {
+        this.userName = response;
+        console.log(response); // This should print "Scott" if the response is { name: "Scott" }
+        console.log("Hi" + this.userName); // Log the userName to verify
+
+      },
+      error: (err) => {
+        console.error("Failed to fetch user name: ", err);
+      }
+    });
+    // this.userService.getUserName({
+    // })
+    //   .subscribe({
+    //     next: (response : {name : string}) => {
+    //       console.log(response);
+    //       this.userName = response.name; // Accessing the name from the response map
         
-        },
-        error: (err) => {
-          console.error("Failed to fetch user name: ", err);
-        }
-      });
+    //     },
+    //     error: (err) => {
+    //       console.error("Failed to fetch user name: ", err);
+    //     }
+    //   });
   }
 
   async logout() {

@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
-import { SignupComponent } from '../../../auth/signup/signup.component';
+
 
 @Component({
   selector: 'app-home',
@@ -15,13 +15,6 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
       
-  }
-
-  handleSignupAction(){
-      const dialogConfig = new MatDialogConfig();
-      dialogConfig.width = "850px";
-      dialogConfig.height = "450px";
-      this.dialog.open(SignupComponent, dialogConfig);
   }
 
 }
