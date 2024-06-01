@@ -23,6 +23,8 @@ import { EmptyHeaderComponent } from './components/header/empty-header/empty-hea
 import { UserHeaderComponent } from './components/header/user-header/user-header.component';
 import { SearchBarComponent } from "./components/search-bar/search-bar.component";
 import { KeycloakService } from './services/keycloak/keycloak.service';
+import { UnauthHeaderComponent } from './components/header/unauth-header/unauth-header.component';
+import { AnalysisComponent } from './pages/public/analysis/analysis.component';
 
 
 
@@ -50,7 +52,9 @@ export function kcFactory(kcService: KeycloakService){
         UserHomeComponent,
         EmptyHeaderComponent,
         UserHeaderComponent,
-        SearchBarComponent
+        SearchBarComponent,
+        AnalysisComponent,
+        UnauthHeaderComponent,
     ],
     providers: [
         provideHttpClient(withInterceptors([httpTokenInterceptor])),

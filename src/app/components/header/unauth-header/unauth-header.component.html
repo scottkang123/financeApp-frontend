@@ -1,0 +1,35 @@
+<nav class="navbar">
+    <div class="logo" routerLink="/">
+        <!-- TODO: Replace with actual logo later -->
+        <span class="temp-logo">FinanceApp</span>
+
+        <span class="header-year">
+            {{currentYear}}
+        </span>
+    </div>
+    <div class="menu">
+        <div class="drop-down">
+            <button class="menu-button" (click)="selectServicesMenu()">
+                <span class="menu-text">Services</span>
+            </button>
+            <div *ngIf="isServicesMenuSelected()" class="drop-down-menu">
+                <div *ngFor="let menu of getServicesMenus()" class="drop-down-item" (click)="navigateTo(menu.path)">
+                    <span>{{menu.name}}</span>
+                </div>
+            </div>
+        </div>
+        <div class="drop-down">
+            <button class="menu-button" (click)="selectSupportMenu()">
+                <span class="menu-text">Support</span>
+            </button>
+            <div *ngIf="isSupportMenuSelected()" class="drop-down-menu">
+                <div *ngFor="let menu of getSupportMenus()" class="drop-down-item"  (click)="navigateTo(menu.path)">
+                    <span>{{menu.name}}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="sign-in">
+        <button class="sign-in-button" routerLink="/signin">Sign In</button>
+    </div>
+</nav>

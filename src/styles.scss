@@ -1,6 +1,6 @@
 
 // styles.scss
-@import './theme';
+// @import './theme';  TODO: Moved theme content to this file; delete theme.scss later
 @import "bootstrap/dist/css/bootstrap.min.css";
 @import "@fortawesome/fontawesome-free/css/all.min.css";
 
@@ -23,4 +23,25 @@ html {
 @font-face {
     font-family: 'Poppins-Light';
     src: url('./assets/Poppins_font/Poppins-Light.ttf');
+}
+
+@font-face {
+    font-family: 'Poppins-Bold';
+    src: url('./assets/Poppins_font/Poppins-Bold.ttf');
+}
+
+@font-face {
+    font-family: 'Poppins-SemiBold';
+    src: url('./assets/Poppins_font/Poppins-SemiBold.ttf');
+}
+
+:root {
+    --primary-color: #20303F;
+    --secondary-color: #2E455B;
+    --text-color: #FFFFFF;
+    --button-background: #FFFFFF;
+    --button-color: #20303F;
+    --hypertext-color: #0A75D9;
+    --primary-color-05: #F1F5F8;
+    --primary-color-10: #E3EAF1;
 }
