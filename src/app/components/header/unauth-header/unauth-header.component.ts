@@ -1,4 +1,4 @@
-import { Component, HostListener } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 interface HeaderMenuItem {
@@ -15,7 +15,7 @@ enum MenuState {
   templateUrl: './unauth-header.component.html',
   styleUrl: './unauth-header.component.css'
 })
-export class UnauthHeaderComponent {
+export class UnauthHeaderComponent implements OnInit {
   constructor (
     private router: Router
   ) {}
@@ -33,6 +33,12 @@ export class UnauthHeaderComponent {
   ];
 
   selectedMenu: MenuState = MenuState.INACTIVE;
+
+  ngOnInit(): void {
+    this.selectedMenu = MenuState.INACTIVE;
+    // TODO: Get current year here
+  }
+  
   currentYear: string = "2024";
 
   getServicesMenus(): HeaderMenuItem[] {

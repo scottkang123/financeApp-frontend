@@ -1,66 +1,113 @@
 .navbar {
-  background-color: #FFFFFF;
+  background-color: white;
+  padding: 0px 0px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem;
-  font-family: 'Poppins-Medium';
-}
-
-.brand {
-  font-size: 48px;
-  font-weight: bold;
+  font-family: "Poppins-Medium";
   color: var(--primary-color);
+  font-size: 12px;
 }
 
-.brand a {
-  text-decoration: none;
-  color: black;
-}
-
-.nav-center {
-  flex-grow: 1; /* Take up remaining space */
-  text-align: center; /* Center align content */
-}
-
-.nav-center span {
-  font-size: 24px; /* Adjust the font size as needed */
-}
-
-.nav-links {
+.left {
   display: flex;
-  justify-content: flex-start;
-  margin-left: 2rem;
 }
 
-.nav-links a {
-  text-decoration: none;
-  font-family: 'Poppins-Light';
-  font-size: 24px;
-  color: var(--text-color);
-  margin-right: 2rem;
-}
-
-.user-actions {
+.logo {
+  padding: 1.25em 0em;
+  margin: 0em 3em;
   display: flex;
   align-items: center;
+  cursor: pointer;
 }
 
-.user-actions .login,
-.user-actions .signup-button {
-  font-size: 24px;
-  text-decoration: none;
-  font-family: 'Poppins-Medium';
+.temp-logo {
+  font-family: "Poppins-Bold";
+  font-size: 3em;
 }
 
-.login {
-  color: var(--primary-color);
+.header-year {
+  margin-left: 1em;
+  font-family: "Poppins-SemiBold";
+  font-size: 1.5em;
 }
 
-.signup-button {
-  background-color: #20303F;
-  color: #FFFFF7;
-  padding: 0.5rem 1.5rem;
-  border-radius: 1px;
-  margin-left: 1rem;
+.menu {
+  display: flex;
+  padding: auto;
+  font-size: 1.5em;
+}
+
+.menu-button {
+  padding: 1.75em 2em;
+  margin-right: 4px;
+  background-color: white;
+  border: none;
+}
+
+.menu-button:hover {
+  background-color: var(--primary-color-05);
+  box-shadow: inset 0 -4px 0 0 var(--primary-color);
+}
+
+.drop-down {
+  position: relative;
+}
+
+.drop-down-menu {
+  position: absolute;
+  right: 0;
+  top: calc(100% + .2rem);
+  width: max-content;
+  background-color: white;
+  border-radius: 4px;
+  filter: drop-shadow(0 10px 8px rgb(0 0 0 / 0.04)) drop-shadow(0 4px 3px rgb(0 0 0 / 0.1));
+  transition: opacity 150ms ease-in, opacity 50ms ease-out;
+  display: flex;
+  flex-direction: column;
+  font-size: 1.5em;
+}
+
+.account {
+  margin-right: 1.5em;
+}
+
+.account-button {
+  background-color: var(--primary-color);
+  font-size: 1.5em;
+  color: white;
+  padding: 1em 3em;
+  border-radius: 4px;
+  border: none;
+  margin: 4px 0px 4px 0px;
+  filter: drop-shadow(0 10px 8px rgb(0 0 0 / 0.04)) drop-shadow(0 4px 3px rgb(0 0 0 / 0.1));
+}
+
+.account-button:hover {
+  filter: drop-shadow(0 0 #0000);
+  margin: 5px 0px 3px 0px;
+}
+
+.menu-button:focus {
+  background-color: var(--primary-color-05);
+  box-shadow: inset 0 -4px 0 0 var(--primary-color);
+}
+
+.drop-down-item {
+  position: relative;
+  padding: 0.75em 1em;
+  cursor: pointer;
+}
+
+.drop-down-item:hover {
+  color: var(--hypertext-color);
+  text-decoration: underline;
+}
+
+.live-clock {
+  font-size: 1.5em;
+}
+
+.option-logout {
+  color: red;
 }
