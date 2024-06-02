@@ -12,7 +12,7 @@ export class UserHeaderComponent implements OnInit{
   liveClock: string = '';
   userName: string = '';
 
-  constructor(private userService: UserService, private keycloakSerice : KeycloakService
+  constructor(private userService: UserService, private keycloakService : KeycloakService
   ) {}
 
   ngOnInit(): void {
@@ -35,33 +35,14 @@ export class UserHeaderComponent implements OnInit{
   }
 
   private getUserName() {
-    this.userService.getUserName().subscribe({
-      next: (response) => {
-        this.userName = response;
-        console.log(response); // This should print "Scott" if the response is { name: "Scott" }
-        console.log("Hi" + this.userName); // Log the userName to verify
-
-      },
-      error: (err) => {
-        console.error("Failed to fetch user name: ", err);
-      }
-    });
-    // this.userService.getUserName({
-    // })
-    //   .subscribe({
-    //     next: (response : {name : string}) => {
-    //       console.log(response);
-    //       this.userName = response.name; // Accessing the name from the response map
-        
-    //     },
-    //     error: (err) => {
-    //       console.error("Failed to fetch user name: ", err);
-    //     }
-    //   });
+    const profile = this.keycloakService.profile;
+    if (profile) {
+      this.userName = `${profile.firstName} ${profile.lastName}`;
+    }
   }
 
   async logout() {
-    await this.keycloakSerice.logout();
+    await this.keycloakService.logout();
     console.log("the user should be loggedout");
     
   }
