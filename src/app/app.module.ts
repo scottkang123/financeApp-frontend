@@ -15,10 +15,8 @@ import {CodeInputModule} from "angular-code-input";
 
 
 import { HomeComponent } from './pages/public/home/home.component';
-import { SignupComponent } from './auth/signup/signup.component';
 import { LoginComponent } from './auth/login/login.component';
 import { UserHomeComponent } from './pages/protected/user-home/user-home.component';
-import { EmptyHeaderComponent } from './components/header/empty-header/empty-header.component';
 import { UserHeaderComponent } from './components/header/user-header/user-header.component';
 import { SearchBarComponent } from "./components/search-bar/search-bar.component";
 import { KeycloakService } from './services/keycloak/keycloak.service';
@@ -47,10 +45,8 @@ export function kcFactory(kcService: KeycloakService){
     declarations: [
         AppComponent,
         HomeComponent,
-        SignupComponent,
         LoginComponent,
         UserHomeComponent,
-        EmptyHeaderComponent,
         UserHeaderComponent,
         SearchBarComponent,
         AnalysisComponent,
