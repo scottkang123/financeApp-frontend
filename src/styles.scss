@@ -45,3 +45,19 @@ html {
     --primary-color-05: #F1F5F8;
     --primary-color-10: #E3EAF1;
 }
+
+.fa-button-style {
+    background-color: var(--primary-color);
+    font-size: 1.5em;
+    color: white;
+    padding: 1em 3em;
+    border-radius: 4px;
+    border: none;
+    margin: 4px 0px 4px 0px;
+    filter: drop-shadow(0 10px 8px rgb(0 0 0 / 0.04)) drop-shadow(0 4px 3px rgb(0 0 0 / 0.1));
+  }
+  
+  .fa-button-style:hover {
+    filter: drop-shadow(0 0 #0000);
+    margin: 5px 0px 3px 0px;
+  }

@@ -1,0 +1,13 @@
+.image-skeleton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #D9D9D9;
+    color: black;
+}
+
+.image-skeleton-text {
+    font-size: medium;
+    text-align: center;
+    font-family: "Poppins-Bold";
+}

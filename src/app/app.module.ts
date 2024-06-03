@@ -23,6 +23,7 @@ import { KeycloakService } from './services/keycloak/keycloak.service';
 import { UnauthHeaderComponent } from './components/header/unauth-header/unauth-header.component';
 import { AnalysisComponent } from './pages/public/analysis/analysis.component';
 import { HeaderComponent } from './components/header/header/header.component';
+import { ImageSkeletonComponent } from './components/image-skeleton/image-skeleton.component';
 
 
 
@@ -51,6 +52,7 @@ export function kcFactory(kcService: KeycloakService){
         AnalysisComponent,
         HeaderComponent,
         UnauthHeaderComponent,
+        ImageSkeletonComponent
     ],
     providers: [
         provideHttpClient(withInterceptors([httpTokenInterceptor])),
