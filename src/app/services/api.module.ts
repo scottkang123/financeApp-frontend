@@ -5,19 +5,10 @@ import { HttpClient } from '@angular/common/http';
 import { ApiConfiguration, ApiConfigurationParams } from './api-configuration';
 
 import { ProfileControllerService } from './services/profile-controller.service';
-import { RoleEntityControllerService } from './services/role-entity-controller.service';
-import { RoleSearchControllerService } from './services/role-search-controller.service';
 import { StockEntityControllerService } from './services/stock-entity-controller.service';
 import { StockSearchControllerService } from './services/stock-search-controller.service';
-import { TokenEntityControllerService } from './services/token-entity-controller.service';
-import { TokenSearchControllerService } from './services/token-search-controller.service';
-import { TokenPropertyReferenceControllerService } from './services/token-property-reference-controller.service';
-import { UserEntityControllerService } from './services/user-entity-controller.service';
-import { UserSearchControllerService } from './services/user-search-controller.service';
-import { UserPropertyReferenceControllerService } from './services/user-property-reference-controller.service';
 import { StockService } from './services/stock.service';
-import { AuthenticationService } from './services/authentication.service';
-import { UserControllerService } from './services/user-controller.service';
+import { UserService } from './services/user.service';
 import { SearchService } from './services/search.service';
 
 /**
@@ -29,19 +20,10 @@ import { SearchService } from './services/search.service';
   declarations: [],
   providers: [
     ProfileControllerService,
-    RoleEntityControllerService,
-    RoleSearchControllerService,
     StockEntityControllerService,
     StockSearchControllerService,
-    TokenEntityControllerService,
-    TokenSearchControllerService,
-    TokenPropertyReferenceControllerService,
-    UserEntityControllerService,
-    UserSearchControllerService,
-    UserPropertyReferenceControllerService,
     StockService,
-    AuthenticationService,
-    UserControllerService,
+    UserService,
     SearchService,
     ApiConfiguration
   ],

@@ -387,7 +387,7 @@
         "/user/name": {
             "get": {
                 "tags": [
-                    "user-controller"
+                    "User"
                 ],
                 "operationId": "getUserName",
                 "responses": {
@@ -396,10 +396,7 @@
                         "content": {
                             "application/hal+json": {
                                 "schema": {
-                                    "type": "object",
-                                    "additionalProperties": {
-                                        "type": "string"
-                                    }
+                                    "type": "string"
                                 }
                             }
                         }

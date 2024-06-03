@@ -28,7 +28,7 @@
     <div class="drop-down">
       <button class="account-button" (click)="showAccountOptions()">Account</button>
       <div *ngIf="isAccountOptionsShown()" class="drop-down-menu">
-        <div *ngFor="let opt of getAccountOptions()" class="drop-down-item" (click)="logout()" [ngClass]="{'option-logout': opt.name === 'Log Out'}">
+        <div *ngFor="let opt of getAccountOptions()" class="drop-down-item" (click)="opt.action()" [ngClass]="{'option-logout': opt.name === 'Log Out'}">
             <span>{{opt.name}}</span>
         </div>
       </div>
