@@ -1,17 +1,37 @@
 <nav class="navbar">
-  <div class="brand">
-    FinanceApp
+  <div class="left">
+    <div class="logo" routerLink="/user-home">
+      <!-- TODO: Replace with actual logo later -->
+      <span class="temp-logo">FA</span>
+
+      <span class="header-year">
+          {{currentYear}}
+      </span>
+    </div>
+    <div class="menu">
+        <div class="drop-down">
+            <button class="menu-button">
+                <span class="menu-text">Analyze</span>
+            </button>
+        </div>
+        <div class="drop-down">
+            <button class="menu-button">
+                <span class="menu-text">Manage</span>
+            </button>
+        </div>
+    </div>
   </div>
-  <div class="nav-links">
-    <a routerLink="/">View Market</a>
-    <a routerLink="/about">About Us</a>
-  </div>
-  <div class="user_name">
-      <span>{{userName}}</span>
-  </div>
-  <div class="nav-center">
+  <div class="live-clock" (click)="showAccountOptions()">
     <span>{{liveClock}}</span>
   </div>
-  <button class="btn btn-link" type="submit" (click)="logout()">Log Out</button>
+  <div class="account" (click)="showAccountOptions()">
+    <div class="drop-down">
+      <button class="account-button" (click)="showAccountOptions()">Account</button>
+      <div *ngIf="isAccountOptionsShown()" class="drop-down-menu">
+        <div *ngFor="let opt of getAccountOptions()" class="drop-down-item" (click)="opt.action()" [ngClass]="{'option-logout': opt.name === 'Log Out'}">
+            <span>{{opt.name}}</span>
+        </div>
+      </div>
+    </div>
+  </div>
 </nav>
-
