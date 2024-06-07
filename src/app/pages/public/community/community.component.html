@@ -1,1 +1,15 @@
-<p>community works!</p>
+<div class="community-container">
+    <div class="community-main">
+        <article class="community-main-article">
+            <div class="community-main-text">
+                <h3 class="community-main-title">See how others view the world.</h3>
+                <p class="community-main-subtext">At the heart of the stock market are the people who shape it. We see our users’ insights as our greatest asset in FinanceApp, and offer an engaging online platform where everyone can share their perspectives.</p>
+            </div>
+            <button class="fa-button-style community-main-button" (click)="navigateToSignIn()">Join Discussion Board</button>
+        </article>
+        <div class="community-main-image">
+            <app-image-skeleton [width]="500" [height]="350"></app-image-skeleton>
+        </div>
+    </div>
+    <app-footer></app-footer>
+</div>

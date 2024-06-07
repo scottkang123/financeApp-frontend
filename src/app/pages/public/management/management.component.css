@@ -1,0 +1,57 @@
+.management-container {
+    font-family: "Poppins-Medium";
+}
+
+.management-main {
+    min-height: 80vh;
+    background: rgb(32,48,63);
+    background: linear-gradient(180deg, var(--primary-color) 60%, white 100%);
+    display: flex;
+    justify-content: center;
+}
+
+.management-main-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 4em 0em;
+}
+
+.management-main-text {
+    color: white;
+    text-align: center;
+}
+
+.management-main-title {
+    font-family: "Poppins-Bold";
+    font-size: 5em;
+}
+
+.management-main-subtext {
+    font-size: 1.5em;
+}
+
+.management-main-button {
+    margin-top: 2em;
+}
+
+/* TODO: Handle image sizes later when actual images are placed */
+/* For large screens */
+@media (min-width: 1920px) {
+    .management-main-title {
+        font-size: 8em;
+    }
+
+    .management-main-subtext {
+        font-size: 2.5em;
+        margin-bottom: 3em;
+    }
+
+    .management-main-content {
+        padding: 8em 0em;
+    }
+
+    .management-main-button {
+        font-size: 2.5em;
+    }
+}

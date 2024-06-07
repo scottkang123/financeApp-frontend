@@ -1,0 +1,113 @@
+.reclaim-container {
+    width: 100vw;
+    background-color: var(--background-color);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 2em;
+    font-family: "Poppins-Medium";
+    color: var(--primary-color);
+}
+
+.reclaim-form {
+    width: 65%;
+    background-color: white;
+    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+    border-radius: 1em;
+    padding: 2em 2em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 4em;
+}
+
+.reclaim-form-title {
+    font-family: "Poppins-Bold";
+    margin-bottom: 0.25em;
+}
+
+.reclaim-form-subtext {
+    font-size: 1.25em;
+}
+
+.reclaim-form-input {
+    display: flex;
+    flex-direction: column;
+    margin: 4em 0em;
+    width: 50%;
+}
+
+.reclaim-username-email-input {
+    padding: 0.25em 0.5em;
+    font-size: 1.5em;
+}
+
+.reclaim-form-middle {
+    margin-top: 8em;
+}
+
+.reclaim-other-credential-link {
+    color: var(--hypertext-color);
+    cursor: pointer;
+}
+
+.reclaim-other-credential-link:hover {
+    text-decoration: underline;
+}
+
+.reclaim-form-bottom {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.reclaim-form-button {
+    padding: 0.5em 1.5em;
+}
+
+.reclaim-form-button-sign-in {
+    background-color: white;
+    color: var(--primary-color);
+    border-style: solid;
+    border-width: 1px;
+    border-color: var(--primary-color);
+}
+
+/* TODO: Handle image sizes later when actual images are placed */
+/* For large screens */
+@media (min-width: 1920px) {
+    .reclaim-container {
+        padding-top: 4em;
+    }
+
+    .reclaim-form {
+        padding: 3em 3em;
+    }
+
+    .reclaim-form-title {
+        font-size: 3.5em;
+        margin-bottom: 0.5em;
+    }
+
+    .reclaim-form-subtext {
+        font-size: 1.5em;
+    }
+
+    .reclaim-form-input {
+        font-size: 1.5em;
+        margin: 6em 0em;
+    }
+
+    .reclaim-username-email-input {
+        margin-top: 0.5em;
+        font-size: 1.75em;
+    }
+
+    .reclaim-form-middle {
+        font-size: 1.25em;
+    }
+
+    .reclaim-form-button {
+        font-size: 2em;
+    }
+}

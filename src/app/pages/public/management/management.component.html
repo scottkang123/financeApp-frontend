@@ -1,1 +1,13 @@
-<p>management works!</p>
+<div class="management-container">
+    <div class="management-main">
+        <div class="management-main-content">
+            <app-image-skeleton [width]="450" [height]="275"></app-image-skeleton>
+            <div class="management-main-text">
+                <h1 class="management-main-title">Make your dollars count.</h1>
+                <p class="management-main-subtext">Learn ways to manage your money & future plans</p>
+            </div>
+            <button class="fa-button-style management-main-button" (click)="navigateToSignIn()">Track Your Expenses</button>
+        </div>
+    </div>
+    <app-footer></app-footer>
+</div>

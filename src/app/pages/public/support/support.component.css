@@ -1,0 +1,106 @@
+.support-container {
+    font-family: "Poppins-Medium";
+    color: var(--primary-color);
+}
+
+.support-main {
+    min-height: 70vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    background: rgb(241,245,248);
+    background: linear-gradient(180deg, rgba(241,245,248,1) 60%, rgba(255,255,255,1) 100%);
+    justify-content: center;
+    align-items: center;
+}
+
+.support-main-title {
+    font-family: "Poppins-Bold";
+    font-size: 6em;
+}
+
+.support-search {
+    width: 60%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.support-search-input {
+    font-size: 2em;
+    width: 60%;
+    padding: 0.25em 0.5em;
+    border-radius: 4px;
+    border-width: 1px;
+}
+
+.support-search-button {
+    font-size: 0.75em;
+    margin-left: 2em;
+}
+
+.search-button {
+    padding: 1.12em 2em;
+}
+
+.support-faq {
+    padding: 1em 4em;
+}
+
+.support-faq-title {
+    font-size: 2.25em;
+    font-family: "Poppins-Bold";
+    margin-bottom: 0.5em;
+}
+
+.support-faq-card {
+    padding: 0.75em 1.25em;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+    border-radius: 4px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgb(249 250 251);
+    font-size: 1.75em;
+    margin-bottom: 1em;
+}
+
+.support-faq-link {
+    color: var(--hypertext-color);
+    display: flex;
+    text-align: center;
+}
+
+.support-faq-link:hover {
+    text-decoration: underline;
+}
+
+.support-faq-link-text {
+    display: flex;
+    align-items: center;
+    margin-right: 0.25em;
+}
+
+.support-faq-link-arrow {
+    height: 100%;
+    transform: scale(1.5);
+}
+
+/* TODO: Handle image sizes later when actual images are placed */
+/* For large screens */
+@media (min-width: 1920px) {
+    .support-main-title {
+        font-size: 8em;
+        margin-bottom: 0.25em;
+    }
+
+    .support-search-input {
+        font-size: 3em;
+    }
+
+    .search-button {
+        font-size: 2.2em;
+    }
+}

@@ -1,10 +1,79 @@
 <div class="home-container">
     <section class="main">
-        <app-image-skeleton [width]="450" [height]="300"></app-image-skeleton>
+        <div class="main-top"></div>
         <div class="main-description">
+            <app-image-skeleton [width]="450" [height]="300"></app-image-skeleton>
             <h1 class="title">Open Market Analysis For All</h1>
             <h4 class="subtext">Comprehensive data, simplified for your needs</h4>
+            <button class="fa-button-style main-data-button" (click)="navigateToSignIn()">View 2024 Q2 Data</button>
         </div>
-        <button class="fa-button-style">View 2024 Q2 Data</button>
+        <div class="main-bottom">
+            <mat-icon svgIcon="south" class="connector"></mat-icon>
+        </div>
     </section>
+    <section class="middle">
+        <div class="middle-description">
+            <div class="middle-info">
+                <app-image-skeleton [width]="250" [height]="250"></app-image-skeleton>
+                <h6 class="middle-title">Countless data on US market</h6>
+                <span class="middle-subtext">+5,000 live data, everyday</span>
+            </div>
+            <div class="middle-info">
+                <app-image-skeleton [width]="250" [height]="250"></app-image-skeleton>
+                <h6 class="middle-title">Rapidly growing community</h6>
+                <span class="middle-subtext">+1,000 daily users in participation</span>
+            </div>
+        </div>
+    </section>
+    <section class="second-middle">
+        <div class="price-tag">
+            <h3 class="price-tag-title">Pricing</h3>
+            <div class="price-tag-list">
+                <div class="price-tag-item">
+                    <span>Comprehensive Market Analysis</span>
+                    <span>$0.00</span>
+                </div>
+                <div class="price-tag-item">
+                    <span>Personalized Asset Management</span>
+                    <span>$0.00</span>
+                </div>
+                <div class="price-tag-item">
+                    <span>Round-The-World News Feed</span>
+                    <span>$0.00</span>
+                </div>
+                <div class="price-tag-item">
+                    <span>Active Community/Discussion Board</span>
+                    <span>$0.00</span>
+                </div>
+            </div>
+            <hr class="price-tag-divider">
+            <div class="price-tag-item">
+                <span>Total:</span>
+                <span class="price-tag-total-cost">$0.00</span>
+            </div>
+        </div>
+        <article class="price-description">
+            <div class="price-desc-text">
+                <h4 class="price-desc-title">Our services are accessible for anyone.</h4>
+                <p>We are commited to our mission: Open Market Analysis For All. We hope to provide useful tools to everyone, whether you are a novice or a full-time investor, including ourselves.</p>
+            </div>
+            <div class="price-desc-text">
+                <h4 class="price-desc-title">Your data is safe.</h4>
+                <p>We will never sell your personal information to third parties. <a class="privacy-link">See how we keep your data safe</a>.</p>
+            </div>
+        </article>
+    </section>
+    <section class="bottom">
+        <div class="bottom-middle">
+            <!-- TODO: Replace div/span below with actual logo -->
+            <div class="small-fa-logo">
+                <span class="small-fa-logo-text">FA</span>
+            </div>
+            <h1 class="bottom-title">
+                Open Market Analysis For All
+            </h1>
+            <button class="fa-button-style bottom-button" (click)="navigateToSignIn()">Start Analysis</button>
+        </div>
+    </section>
+    <app-footer></app-footer>
 </div>

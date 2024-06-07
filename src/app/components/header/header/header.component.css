@@ -1,0 +1,5 @@
+.header-style {
+    position: sticky;
+    top: 0px;
+    z-index: 1000; /* Ensures it stays on top of everything */
+}
