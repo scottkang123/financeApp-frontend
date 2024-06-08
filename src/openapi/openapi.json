@@ -176,12 +176,67 @@
                 }
             }
         },
-        "/stocks/search/findbyNameContainingKeywordIgnoreCase": {
+        "/stocks/search/findBySymbol": {
             "get": {
                 "tags": [
                     "stock-search-controller"
                 ],
                 "operationId": "executeSearch-stock-get",
+                "parameters": [
+                    {
+                        "name": "symbol",
+                        "in": "query",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/hal+json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/EntityModelStock"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                }
+            }
+        },
+        "/stocks/search/findFirst500ByOrderByPERatioAsc": {
+            "get": {
+                "tags": [
+                    "stock-search-controller"
+                ],
+                "operationId": "executeSearch-stock-get_1",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/hal+json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/CollectionModelEntityModelStock"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                }
+            }
+        },
+        "/stocks/search/findbyNameContainingKeywordIgnoreCase": {
+            "get": {
+                "tags": [
+                    "stock-search-controller"
+                ],
+                "operationId": "executeSearch-stock-get_2",
                 "parameters": [
                     {
                         "name": "keyword",
@@ -361,25 +416,15 @@
                 }
             }
         },
-        "/stock/fetch-and-save-stocks": {
+        "/stock/fetchStockData": {
             "post": {
                 "tags": [
                     "Stock"
                 ],
-                "operationId": "fetchAndSaveStocks",
+                "operationId": "fetchStockData",
                 "responses": {
                     "200": {
-                        "description": "OK",
-                        "content": {
-                            "application/hal+json": {
-                                "schema": {
-                                    "type": "array",
-                                    "items": {
-                                        "$ref": "#/components/schemas/StockDTO"
-                                    }
-                                }
-                            }
-                        }
+                        "description": "OK"
                     }
                 }
             }
@@ -396,7 +441,36 @@
                         "content": {
                             "application/hal+json": {
                                 "schema": {
-                                    "type": "string"
+                                    "type": "object",
+                                    "additionalProperties": {
+                                        "type": "string"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/stock/top500-by-peratio": {
+            "get": {
+                "tags": [
+                    "Stock"
+                ],
+                "operationId": "getTop500StocksByPERatio",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/hal+json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "array",
+                                        "items": {
+                                            "type": "object"
+                                        }
+                                    }
                                 }
                             }
                         }
@@ -546,8 +620,143 @@
                     "exchange": {
                         "type": "string"
                     },
-                    "price": {
-                        "type": "number"
+                    "description": {
+                        "type": "string"
+                    },
+                    "assetType": {
+                        "type": "string"
+                    },
+                    "currency": {
+                        "type": "string"
+                    },
+                    "country": {
+                        "type": "string"
+                    },
+                    "address": {
+                        "type": "string"
+                    },
+                    "fiscalYearEnd": {
+                        "type": "string"
+                    },
+                    "latestQuarter": {
+                        "type": "string"
+                    },
+                    "marketCapitalization": {
+                        "type": "string"
+                    },
+                    "bookValue": {
+                        "type": "string"
+                    },
+                    "dividendPerShare": {
+                        "type": "string"
+                    },
+                    "dividendYield": {
+                        "type": "string"
+                    },
+                    "revenuePerShareTTM": {
+                        "type": "string"
+                    },
+                    "profitMargin": {
+                        "type": "string"
+                    },
+                    "operatingMarginTTM": {
+                        "type": "string"
+                    },
+                    "returnOnAssetsTTM": {
+                        "type": "string"
+                    },
+                    "returnOnEquityTTM": {
+                        "type": "string"
+                    },
+                    "revenueTTM": {
+                        "type": "string"
+                    },
+                    "grossProfitTTM": {
+                        "type": "string"
+                    },
+                    "dilutedEPSTTM": {
+                        "type": "string"
+                    },
+                    "quarterlyEarningsGrowthYOY": {
+                        "type": "string"
+                    },
+                    "quarterlyRevenueGrowthYOY": {
+                        "type": "string"
+                    },
+                    "analystTargetPrice": {
+                        "type": "string"
+                    },
+                    "analystRatingStrongBuy": {
+                        "type": "string"
+                    },
+                    "analystRatingBuy": {
+                        "type": "string"
+                    },
+                    "analystRatingHold": {
+                        "type": "string"
+                    },
+                    "analystRatingSell": {
+                        "type": "string"
+                    },
+                    "analystRatingStrongSell": {
+                        "type": "string"
+                    },
+                    "trailingPE": {
+                        "type": "string"
+                    },
+                    "forwardPE": {
+                        "type": "string"
+                    },
+                    "priceToSalesRatioTTM": {
+                        "type": "string"
+                    },
+                    "priceToBookRatio": {
+                        "type": "string"
+                    },
+                    "beta": {
+                        "type": "string"
+                    },
+                    "week52High": {
+                        "type": "string"
+                    },
+                    "week52Low": {
+                        "type": "string"
+                    },
+                    "movingAverage50Day": {
+                        "type": "string"
+                    },
+                    "movingAverage200Day": {
+                        "type": "string"
+                    },
+                    "sharesOutstanding": {
+                        "type": "string"
+                    },
+                    "dividendDate": {
+                        "type": "string"
+                    },
+                    "exDividendDate": {
+                        "type": "string"
+                    },
+                    "ebitda": {
+                        "type": "string"
+                    },
+                    "peratio": {
+                        "type": "string"
+                    },
+                    "pegratio": {
+                        "type": "string"
+                    },
+                    "evtoRevenue": {
+                        "type": "string"
+                    },
+                    "evtoEBITDA": {
+                        "type": "string"
+                    },
+                    "cik": {
+                        "type": "string"
+                    },
+                    "eps": {
+                        "type": "string"
                     },
                     "_links": {
                         "$ref": "#/components/schemas/Links"
@@ -646,8 +855,122 @@
                     "exchange": {
                         "type": "string"
                     },
-                    "price": {
-                        "type": "number"
+                    "description": {
+                        "type": "string"
+                    },
+                    "assetType": {
+                        "type": "string"
+                    },
+                    "currency": {
+                        "type": "string"
+                    },
+                    "country": {
+                        "type": "string"
+                    },
+                    "address": {
+                        "type": "string"
+                    },
+                    "fiscalYearEnd": {
+                        "type": "string"
+                    },
+                    "latestQuarter": {
+                        "type": "string"
+                    },
+                    "marketCapitalization": {
+                        "type": "string"
+                    },
+                    "bookValue": {
+                        "type": "string"
+                    },
+                    "dividendPerShare": {
+                        "type": "string"
+                    },
+                    "dividendYield": {
+                        "type": "string"
+                    },
+                    "revenuePerShareTTM": {
+                        "type": "string"
+                    },
+                    "profitMargin": {
+                        "type": "string"
+                    },
+                    "operatingMarginTTM": {
+                        "type": "string"
+                    },
+                    "returnOnAssetsTTM": {
+                        "type": "string"
+                    },
+                    "returnOnEquityTTM": {
+                        "type": "string"
+                    },
+                    "revenueTTM": {
+                        "type": "string"
+                    },
+                    "grossProfitTTM": {
+                        "type": "string"
+                    },
+                    "dilutedEPSTTM": {
+                        "type": "string"
+                    },
+                    "quarterlyEarningsGrowthYOY": {
+                        "type": "string"
+                    },
+                    "quarterlyRevenueGrowthYOY": {
+                        "type": "string"
+                    },
+                    "analystTargetPrice": {
+                        "type": "string"
+                    },
+                    "analystRatingStrongBuy": {
+                        "type": "string"
+                    },
+                    "analystRatingBuy": {
+                        "type": "string"
+                    },
+                    "analystRatingHold": {
+                        "type": "string"
+                    },
+                    "analystRatingSell": {
+                        "type": "string"
+                    },
+                    "analystRatingStrongSell": {
+                        "type": "string"
+                    },
+                    "trailingPE": {
+                        "type": "string"
+                    },
+                    "forwardPE": {
+                        "type": "string"
+                    },
+                    "priceToSalesRatioTTM": {
+                        "type": "string"
+                    },
+                    "priceToBookRatio": {
+                        "type": "string"
+                    },
+                    "beta": {
+                        "type": "string"
+                    },
+                    "week52High": {
+                        "type": "string"
+                    },
+                    "week52Low": {
+                        "type": "string"
+                    },
+                    "movingAverage50Day": {
+                        "type": "string"
+                    },
+                    "movingAverage200Day": {
+                        "type": "string"
+                    },
+                    "sharesOutstanding": {
+                        "type": "string"
+                    },
+                    "dividendDate": {
+                        "type": "string"
+                    },
+                    "exDividendDate": {
+                        "type": "string"
                     },
                     "tradeHistories": {
                         "type": "array",
@@ -655,28 +978,26 @@
                             "type": "string"
                         }
                     },
-                    "financialInfos": {
-                        "type": "array",
-                        "items": {
-                            "type": "string"
-                        }
-                    }
-                }
-            },
-            "StockDTO": {
-                "type": "object",
-                "properties": {
-                    "name": {
+                    "ebitda": {
                         "type": "string"
                     },
-                    "symbol": {
+                    "peratio": {
                         "type": "string"
                     },
-                    "exchange": {
+                    "pegratio": {
                         "type": "string"
                     },
-                    "price": {
-                        "type": "number"
+                    "evtoRevenue": {
+                        "type": "string"
+                    },
+                    "evtoEBITDA": {
+                        "type": "string"
+                    },
+                    "cik": {
+                        "type": "string"
+                    },
+                    "eps": {
+                        "type": "string"
                     }
                 }
             },

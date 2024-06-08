@@ -7,26 +7,22 @@ import { StrictHttpResponse } from '../../strict-http-response';
 import { RequestBuilder } from '../../request-builder';
 
 
-export interface GetUserName$Params {
+export interface FetchStockData$Params {
 }
 
-export function getUserName(http: HttpClient, rootUrl: string, params?: GetUserName$Params, context?: HttpContext): Observable<StrictHttpResponse<{
-[key: string]: string;
-}>> {
-  const rb = new RequestBuilder(rootUrl, getUserName.PATH, 'get');
+export function fetchStockData(http: HttpClient, rootUrl: string, params?: FetchStockData$Params, context?: HttpContext): Observable<StrictHttpResponse<void>> {
+  const rb = new RequestBuilder(rootUrl, fetchStockData.PATH, 'post');
   if (params) {
   }
 
   return http.request(
-    rb.build({ responseType: 'json', accept: 'application/hal+json', context })
+    rb.build({ responseType: 'text', accept: '*/*', context })
   ).pipe(
     filter((r: any): r is HttpResponse<any> => r instanceof HttpResponse),
     map((r: HttpResponse<any>) => {
-      return r as StrictHttpResponse<{
-      [key: string]: string;
-      }>;
+      return (r as HttpResponse<any>).clone({ body: undefined }) as StrictHttpResponse<void>;
     })
   );
 }
 
-getUserName.PATH = '/user/name';
+fetchStockData.PATH = '/stock/fetchStockData';

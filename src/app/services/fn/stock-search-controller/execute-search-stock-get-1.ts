@@ -6,13 +6,13 @@ import { filter, map } from 'rxjs/operators';
 import { StrictHttpResponse } from '../../strict-http-response';
 import { RequestBuilder } from '../../request-builder';
 
-import { StockDto } from '../../models/stock-dto';
+import { CollectionModelEntityModelStock } from '../../models/collection-model-entity-model-stock';
 
-export interface FetchAndSaveStocks$Params {
+export interface ExecuteSearchStockGet1$Params {
 }
 
-export function fetchAndSaveStocks(http: HttpClient, rootUrl: string, params?: FetchAndSaveStocks$Params, context?: HttpContext): Observable<StrictHttpResponse<Array<StockDto>>> {
-  const rb = new RequestBuilder(rootUrl, fetchAndSaveStocks.PATH, 'post');
+export function executeSearchStockGet1(http: HttpClient, rootUrl: string, params?: ExecuteSearchStockGet1$Params, context?: HttpContext): Observable<StrictHttpResponse<CollectionModelEntityModelStock>> {
+  const rb = new RequestBuilder(rootUrl, executeSearchStockGet1.PATH, 'get');
   if (params) {
   }
 
@@ -21,9 +21,9 @@ export function fetchAndSaveStocks(http: HttpClient, rootUrl: string, params?: F
   ).pipe(
     filter((r: any): r is HttpResponse<any> => r instanceof HttpResponse),
     map((r: HttpResponse<any>) => {
-      return r as StrictHttpResponse<Array<StockDto>>;
+      return r as StrictHttpResponse<CollectionModelEntityModelStock>;
     })
   );
 }
 
-fetchAndSaveStocks.PATH = '/stock/fetch-and-save-stocks';
+executeSearchStockGet1.PATH = '/stocks/search/findFirst500ByOrderByPERatioAsc';

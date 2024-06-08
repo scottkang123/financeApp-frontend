@@ -4,7 +4,8 @@ import { ApiConfiguration } from './services/api-configuration';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { StrictHttpResponse } from './services/strict-http-response';
-import { StockDto } from './services/models';
+import { StockRequestBody } from './services/models';
+
 
 @Injectable({
   providedIn: 'root'
@@ -37,7 +38,7 @@ export class SearchService extends BaseService {
     return result;
   }
 
-  searchStock(query: string): Observable<Array<StockDto>> {
+  searchStock(query: string): Observable<Array<StockRequestBody>> {
     let completedUrl: string = this.rootUrl + this.SEARCH_STOCK_API + this.processQuery(query);
     return this.http.get<any>(completedUrl);
   }

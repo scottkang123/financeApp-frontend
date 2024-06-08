@@ -6,16 +6,16 @@ import { filter, map } from 'rxjs/operators';
 import { StrictHttpResponse } from '../../strict-http-response';
 import { RequestBuilder } from '../../request-builder';
 
-import { CollectionModelEntityModelStock } from '../../models/collection-model-entity-model-stock';
+import { EntityModelStock } from '../../models/entity-model-stock';
 
 export interface ExecuteSearchStockGet$Params {
-  keyword?: string;
+  symbol?: string;
 }
 
-export function executeSearchStockGet(http: HttpClient, rootUrl: string, params?: ExecuteSearchStockGet$Params, context?: HttpContext): Observable<StrictHttpResponse<CollectionModelEntityModelStock>> {
+export function executeSearchStockGet(http: HttpClient, rootUrl: string, params?: ExecuteSearchStockGet$Params, context?: HttpContext): Observable<StrictHttpResponse<EntityModelStock>> {
   const rb = new RequestBuilder(rootUrl, executeSearchStockGet.PATH, 'get');
   if (params) {
-    rb.query('keyword', params.keyword, {});
+    rb.query('symbol', params.symbol, {});
   }
 
   return http.request(
@@ -23,9 +23,9 @@ export function executeSearchStockGet(http: HttpClient, rootUrl: string, params?
   ).pipe(
     filter((r: any): r is HttpResponse<any> => r instanceof HttpResponse),
     map((r: HttpResponse<any>) => {
-      return r as StrictHttpResponse<CollectionModelEntityModelStock>;
+      return r as StrictHttpResponse<EntityModelStock>;
     })
   );
 }
 
-executeSearchStockGet.PATH = '/stocks/search/findbyNameContainingKeywordIgnoreCase';
+executeSearchStockGet.PATH = '/stocks/search/findBySymbol';

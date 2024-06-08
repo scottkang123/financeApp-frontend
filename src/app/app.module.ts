@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { CommonModule } from '@angular/common';
+import { CommonModule, registerLocaleData } from '@angular/common';
 import { HttpClient, HttpClientModule, provideHttpClient, withInterceptors } from '@angular/common/http';
 import { httpTokenInterceptor } from './services/interceptor/http-token.interceptor';
 
@@ -13,17 +13,26 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { FormsModule } from '@angular/forms'; // Import FormsModule -- this is used for now instead of the top one
 import {CodeInputModule} from "angular-code-input";
 
-
 import { HomeComponent } from './pages/public/home/home.component';
 import { LoginComponent } from './auth/login/login.component';
 import { UserHomeComponent } from './pages/protected/user-home/user-home.component';
 import { UserHeaderComponent } from './components/header/user-header/user-header.component';
-import { SearchBarComponent } from "./components/search-bar/search-bar.component";
+import { SearchBarComponent } from './components/search-bar/search-bar.component';
 import { KeycloakService } from './services/keycloak/keycloak.service';
 import { UnauthHeaderComponent } from './components/header/unauth-header/unauth-header.component';
 import { AnalysisComponent } from './pages/public/analysis/analysis.component';
 import { HeaderComponent } from './components/header/header/header.component';
+import { ProtectedRoutingModule } from './pages/protected/protected-routing.module';
+import { PublicRoutingModule } from './pages/public/public-routing.module';
+import { StockAnalysisComponent } from './pages/protected/analysis-pages/stock-analysis/stock-analysis.component';
+import { NZ_I18N } from 'ng-zorro-antd/i18n';
+import { en_US } from 'ng-zorro-antd/i18n';
+import en from '@angular/common/locales/en';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 
+import { NgZorroModule } from './NgZorro.module';
+
+registerLocaleData(en);
 
 
 const ngxUiLoaderConfig: NgxUiLoaderConfig = {
@@ -51,6 +60,7 @@ export function kcFactory(kcService: KeycloakService){
         AnalysisComponent,
         HeaderComponent,
         UnauthHeaderComponent,
+        StockAnalysisComponent
     ],
     providers: [
         provideHttpClient(withInterceptors([httpTokenInterceptor])),
@@ -59,7 +69,10 @@ export function kcFactory(kcService: KeycloakService){
             deps: [KeycloakService],
             useFactory: kcFactory,
             multi: true
-        }
+        },
+        { provide: NZ_I18N, useValue: en_US },
+        provideAnimationsAsync(),
+        provideHttpClient()
     ], //HttpClient],   //multi because spring has its own interceptors as well but no need to provide if using functional approach to implement the interceptor
     bootstrap: [AppComponent],
     imports: [
@@ -71,7 +84,10 @@ export function kcFactory(kcService: KeycloakService){
         ReactiveFormsModule,
         FormsModule,
         CodeInputModule,
-        NgxUiLoaderModule.forRoot(ngxUiLoaderConfig)
+        NgxUiLoaderModule.forRoot(ngxUiLoaderConfig),
+        ProtectedRoutingModule,
+        PublicRoutingModule,
+        NgZorroModule
     ]
 })
 export class AppModule { }

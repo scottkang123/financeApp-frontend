@@ -7,13 +7,12 @@ import { StrictHttpResponse } from '../../strict-http-response';
 import { RequestBuilder } from '../../request-builder';
 
 
-export interface GetUserName$Params {
+export interface GetTop500StocksByPeRatio$Params {
 }
 
-export function getUserName(http: HttpClient, rootUrl: string, params?: GetUserName$Params, context?: HttpContext): Observable<StrictHttpResponse<{
-[key: string]: string;
-}>> {
-  const rb = new RequestBuilder(rootUrl, getUserName.PATH, 'get');
+export function getTop500StocksByPeRatio(http: HttpClient, rootUrl: string, params?: GetTop500StocksByPeRatio$Params, context?: HttpContext): Observable<StrictHttpResponse<Array<Array<{
+}>>>> {
+  const rb = new RequestBuilder(rootUrl, getTop500StocksByPeRatio.PATH, 'get');
   if (params) {
   }
 
@@ -22,11 +21,10 @@ export function getUserName(http: HttpClient, rootUrl: string, params?: GetUserN
   ).pipe(
     filter((r: any): r is HttpResponse<any> => r instanceof HttpResponse),
     map((r: HttpResponse<any>) => {
-      return r as StrictHttpResponse<{
-      [key: string]: string;
-      }>;
+      return r as StrictHttpResponse<Array<Array<{
+      }>>>;
     })
   );
 }
 
-getUserName.PATH = '/user/name';
+getTop500StocksByPeRatio.PATH = '/stock/top500-by-peratio';

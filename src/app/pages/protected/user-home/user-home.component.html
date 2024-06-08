@@ -1,1 +1,6 @@
-<div class = user_home_container></div>
+<div class = user_home_container>
+    <h2>Top 500 Stocks by PERatio (Names Only)</h2>
+    <ul>
+      <li *ngFor="let stockName of topStocksByPer">{{ stockName }}</li>
+    </ul>
+</div>

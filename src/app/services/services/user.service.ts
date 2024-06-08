@@ -27,7 +27,9 @@ export class UserService extends BaseService {
    *
    * This method doesn't expect any request body.
    */
-  getUserName$Response(params?: GetUserName$Params, context?: HttpContext): Observable<StrictHttpResponse<string>> {
+  getUserName$Response(params?: GetUserName$Params, context?: HttpContext): Observable<StrictHttpResponse<{
+[key: string]: string;
+}>> {
     return getUserName(this.http, this.rootUrl, params, context);
   }
 
@@ -37,9 +39,15 @@ export class UserService extends BaseService {
    *
    * This method doesn't expect any request body.
    */
-  getUserName(params?: GetUserName$Params, context?: HttpContext): Observable<string> {
+  getUserName(params?: GetUserName$Params, context?: HttpContext): Observable<{
+[key: string]: string;
+}> {
     return this.getUserName$Response(params, context).pipe(
-      map((r: StrictHttpResponse<string>): string => r.body)
+      map((r: StrictHttpResponse<{
+[key: string]: string;
+}>): {
+[key: string]: string;
+} => r.body)
     );
   }
 
