@@ -1,1 +1,11 @@
-<p>overview works!</p>
+<div class="overview-container">
+    <div class="overview-main">
+        <app-image-skeleton [width]="750" [height]="350"></app-image-skeleton>
+        <div class="overview-main-text">
+            <h1 class="overview-main-title">Discover all financial news, worldwide.</h1>
+            <p class="overview-main-subtext">Stay informed about your areas of interest, and find out about more</p>
+        </div>
+        <button class="fa-button-style overview-main-button" (click)="navigateToSignIn()">Read Today's News</button>
+    </div>
+    <app-footer></app-footer>
+</div>

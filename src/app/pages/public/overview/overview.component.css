@@ -1,0 +1,50 @@
+.overview-container {
+    background-color: var(--background-color);
+    font-family: "Poppins-Medium";
+}
+
+.overview-main {
+    min-height: 80vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2em 6em;
+}
+
+.overview-main-text {
+    text-align: center;
+    margin-top: 1em;
+}
+
+.overview-main-title {
+    font-size: 4em;
+    font-family: "Poppins-Bold";
+}
+
+.overview-main-subtext {
+    font-size: 1.5em;
+}
+
+.overview-main-button {
+    margin-top: 1.75em;
+}
+
+/* TODO: Handle image sizes later when actual images are placed */
+/* For large screens */
+@media (min-width: 1920px) {
+    .overview-main {
+        padding: 4em 6em;
+    }
+
+    .overview-main-title {
+        font-size: 6em;
+    }
+
+    .overview-main-subtext {
+        font-size: 2.5em;
+    }
+
+    .overview-main-button {
+        font-size: 2.5em;
+    }
+}

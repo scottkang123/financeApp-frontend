@@ -1,3 +1,9 @@
 .title {
   text-align: center;
 }
+
+.content {
+  /* Might need to change max-height if header's height changes */
+  max-height: calc(100vh - 6em);
+  overflow-y: auto;
+}

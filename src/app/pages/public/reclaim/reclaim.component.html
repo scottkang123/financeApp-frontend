@@ -1,1 +1,27 @@
-<p>reclaim works!</p>
+<div class="reclaim-container">
+    <div class="reclaim-form">
+        <h1 class="reclaim-form-title">Let's help you get your account back.</h1>
+        <span class="reclaim-form-subtext">Verify your identity and we will reset and send your new <b>password</b>.</span>
+        <div class="reclaim-form-input">
+            <span>Username/email:</span>
+            <input
+            type="text"
+            class="reclaim-username-email-input"
+            [(ngModel)]="usernameOrEmail"
+            (keydown.enter)="onUsernameOrEmailEntry()"
+            />
+        </div>
+        <div class="reclaim-form-middle">
+            <div>
+                <span>Cannot remember your credentials? </span>
+                <span class="reclaim-other-credential-link">Try something else.</span>
+            </div>
+            <hr>
+        </div>
+        <div class="reclaim-form-bottom">
+            <button class="fa-button-style reclaim-form-button reclaim-form-button-sign-in" (click)="navigateToSignIn()">Back to Sign In</button>
+            <button class="fa-button-style reclaim-form-button reclaim-form-button-continue">Continue</button>
+        </div>
+    </div>
+    <app-footer></app-footer>
+</div>

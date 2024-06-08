@@ -14,7 +14,14 @@ html {
     margin: 0;
     padding: 0;
   }
-  
+
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow-y: hidden;
+}
+
 @font-face {
     font-family: 'Poppins-Medium';
     src: url('./assets/Poppins_font/Poppins-Medium.ttf');
@@ -35,9 +42,15 @@ html {
     src: url('./assets/Poppins_font/Poppins-SemiBold.ttf');
 }
 
+@font-face {
+    font-family: 'Poppins-Regular';
+    src: url('./assets/Poppins_font/Poppins-Regular.ttf');
+}
+
 :root {
     --primary-color: #20303F;
     --secondary-color: #2E455B;
+    --background-color: #FFFFF4;
     --text-color: #FFFFFF;
     --button-background: #FFFFFF;
     --button-color: #20303F;

@@ -1,1 +1,44 @@
-<p>sign-in works!</p>
+<div class="signin-container">
+    <div class="signin-form">
+        <h1 class="signin-form-title">Sign In</h1>
+        <div class="signin-form-input">
+            <span class="signin-username-email-text">Username/email:</span>
+            <input
+            type="text"
+            class="signin-username-email-input"
+            [(ngModel)]="usernameOrEmail"
+            (keydown.enter)="onSubmit()"
+            />
+            <span class="signin-password-text">Password:</span>
+            <input
+            type="password"
+            class="signin-password-input"
+            [(ngModel)]="password"
+            (keydown.enter)="onSubmit()"
+            />
+            <div class="signin-show-password-section">
+                <input
+                type="checkbox"
+                class="signin-show-password-checkbox"
+                />
+                <span class="signin-show-password-text">Show Password</span>
+            </div>
+        </div>
+        <div class="signin-form-middle">
+            <span class="signin-reclaim-link" (click)="navigateToReclaim()">Forgot username or password?</span>
+            <button class="fa-button-style signin-form-button">Sign In Now</button>
+            <hr>
+        </div>
+        <div class="signin-form-bottom">
+            <div class="signin-create-new-account">
+                <div class="signin-create-new-account-text">
+                    <span>Create New Account</span>
+                </div>
+                <div class="signin-arrow-icon">
+                    <mat-icon svgIcon="arrowRightAlt" class="signin-arrow"></mat-icon>
+                </div>
+            </div>
+        </div>
+    </div>
+    <app-footer></app-footer>
+</div>

@@ -1,7 +1,9 @@
-<div *ngIf="isAuthenticated; then authHeader else unauthHeader"></div>
-<ng-template #authHeader>
-    <app-user-header></app-user-header>
-</ng-template>
-<ng-template #unauthHeader>
-    <app-unauth-header></app-unauth-header>
-</ng-template>
+<div class="header-style">
+    <ng-container *ngIf="isAuthenticated; else unauthHeader">
+        <app-user-header></app-user-header>
+    </ng-container>
+    <ng-template #unauthHeader>
+        <app-unauth-header></app-unauth-header>
+    </ng-template>
+</div>
+  

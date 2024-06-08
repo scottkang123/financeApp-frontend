@@ -1,0 +1,62 @@
+.community-container {
+    display: flex;
+    flex-direction: column;
+    font-family: "Poppins-Medium";
+    width: 100vw;
+}
+
+.community-main {
+    display: flex;
+    justify-content: space-between;
+    padding: 2em 5em;
+    min-height: 60vh;
+    background: var(--background-color);
+    background: linear-gradient(180deg, var(--background-color) 0%, white 100%);
+}
+
+.community-main-article {
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.community-main-image {
+    width: 35%;
+}
+
+.community-main-title {
+    font-family: "Poppins-Bold";
+    font-size: 2.5em;
+}
+
+.community-main-subtext {
+    font-size: 1.25em;
+}
+
+.community-main-button {
+    margin-top: 3em;
+    width: fit-content;
+}
+
+.community-main-image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* TODO: Handle image sizes later when actual images are placed */
+/* For large screens */
+@media (min-width: 1920px) {
+    .community-main-title {
+        font-size: 4em;
+    }
+
+    .community-main-subtext {
+        font-size: 1.5em;
+    }
+
+    .community-main-button {
+        font-size: 2em;
+    }
+}

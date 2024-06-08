@@ -1,5 +1,5 @@
 import { APP_INITIALIZER, NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
+import { BrowserModule, DomSanitizer } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -24,6 +24,14 @@ import { UnauthHeaderComponent } from './components/header/unauth-header/unauth-
 import { AnalysisComponent } from './pages/public/analysis/analysis.component';
 import { HeaderComponent } from './components/header/header/header.component';
 import { ImageSkeletonComponent } from './components/image-skeleton/image-skeleton.component';
+import { MatIconModule, MatIconRegistry } from '@angular/material/icon';
+import { FooterComponent } from './components/footer/footer.component';
+import { ManagementComponent } from './pages/public/management/management.component';
+import { OverviewComponent } from './pages/public/overview/overview.component';
+import { CommunityComponent } from './pages/public/community/community.component';
+import { SupportComponent } from './pages/public/support/support.component';
+import { ReclaimComponent } from './pages/public/reclaim/reclaim.component';
+import { SignInComponent } from './pages/public/sign-in/sign-in.component';
 
 
 
@@ -52,7 +60,14 @@ export function kcFactory(kcService: KeycloakService){
         AnalysisComponent,
         HeaderComponent,
         UnauthHeaderComponent,
-        ImageSkeletonComponent
+        ImageSkeletonComponent,
+        ManagementComponent,
+        OverviewComponent,
+        CommunityComponent,
+        SupportComponent,
+        ReclaimComponent,
+        SignInComponent,
+        FooterComponent
     ],
     providers: [
         provideHttpClient(withInterceptors([httpTokenInterceptor])),
@@ -69,6 +84,7 @@ export function kcFactory(kcService: KeycloakService){
         AppRoutingModule,
         CommonModule,
         MaterialModule,
+        MatIconModule,
         HttpClientModule,
         ReactiveFormsModule,
         FormsModule,
@@ -76,4 +92,26 @@ export function kcFactory(kcService: KeycloakService){
         NgxUiLoaderModule.forRoot(ngxUiLoaderConfig)
     ]
 })
-export class AppModule { }
+export class AppModule {
+  constructor(
+    private matIconRegistry: MatIconRegistry,
+    private domSanitizer: DomSanitizer
+  ) {
+    this.registerIcons();
+  }
+
+  registerIcons() {
+    this.matIconRegistry.addSvgIcon(
+      "south",
+      this.domSanitizer.bypassSecurityTrustResourceUrl("assets/icons/south.svg")
+    );
+    this.matIconRegistry.addSvgIcon(
+      "arrowRightAlt",
+      this.domSanitizer.bypassSecurityTrustResourceUrl("assets/icons/arrow_right_alt.svg")
+    );
+    this.matIconRegistry.addSvgIcon(
+      "east",
+      this.domSanitizer.bypassSecurityTrustResourceUrl("assets/icons/east.svg")
+    );
+  }
+}

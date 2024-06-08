@@ -1,0 +1,161 @@
+.signin-container {
+    width: 100vw;
+    background-color: var(--background-color);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 2em;
+    font-family: "Poppins-Medium";
+    color: var(--primary-color);
+}
+
+.signin-form {
+    width: 65%;
+    background-color: white;
+    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+    border-radius: 1em;
+    padding: 2em 2em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 4em;
+}
+
+.signin-form-title {
+    font-family: "Poppins-Bold";
+}
+
+.signin-form-input {
+    display: flex;
+    flex-direction: column;
+    margin: 3em 0em;
+    width: 50%;
+}
+
+.signin-username-email-input {
+    padding: 0.25em 0.5em;
+    font-size: 1.5em;
+    margin-bottom: 0.5em;
+}
+
+.signin-password-input {
+    padding: 0.25em 0.5em;
+    font-size: 1.5em;
+    margin-bottom: 1em;
+}
+
+.signin-show-password-checkbox {
+    /* Double-sized Checkboxes */
+    -ms-transform: scale(1.5); /* IE */
+    -moz-transform: scale(1.5); /* FF */
+    -webkit-transform: scale(1.5); /* Safari and Chrome */
+    -o-transform: scale(1.5); /* Opera */
+    transform: scale(1.5);
+    padding: 10px;
+}
+
+.signin-show-password-text {
+    margin-left: 1em;
+}
+
+.signin-form-middle {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+}
+
+.signin-reclaim-link {
+    color: var(--hypertext-color);
+    cursor: pointer;
+    margin-bottom: 0.5em;
+}
+
+.signin-reclaim-link:hover {
+    text-decoration: underline;
+}
+
+.signin-form-bottom {
+    display: flex;
+    flex-direction: column;
+    margin: 1em 0em;
+}
+
+.signin-create-new-account {
+    color: var(--hypertext-color);
+    display: flex;
+    text-align: center;
+}
+
+.signin-create-new-account:hover {
+    text-decoration: underline;
+}
+
+.signin-create-new-account-text {
+    display: flex;
+    align-items: center;
+    font-size: 1.25em;
+    margin-right: 0.25em;
+}
+
+.signin-arrow {
+    height: 100%;
+    transform: scale(1.25);
+}
+
+/* TODO: Handle image sizes later when actual images are placed */
+/* For large screens */
+@media (min-width: 1920px) {
+    .signin-container {
+        padding-top: 4em;
+    }
+
+    .signin-form {
+        padding: 3em 3em;
+    }
+
+    .signin-form-title {
+        font-size: 3.5em;
+        margin-bottom: 0.5em;
+    }
+
+    .signin-form-input {
+        margin: 4em 0em;
+    }
+
+    .signin-username-email-text {
+        font-size: 1.25em;
+    }
+
+    .signin-password-text {
+        font-size: 1.25em;
+    }
+
+    .signin-username-email-input {
+        font-size: 2em;
+        margin-bottom: 1em;
+    }
+
+    .signin-password-input {
+        font-size: 2em;
+        margin-bottom: 1.5em;
+    }
+
+    .signin-form-button {
+        font-size: 2em;
+        margin-bottom: 0.5em;
+    }
+
+    .signin-reclaim-link {
+        font-size: 1.15em;
+        margin-bottom: 0.75em;
+    }
+
+    .signin-create-new-account-text {
+        font-size: 1.5em;
+        margin-right: 0.5em;
+    }
+
+    .signin-arrow {
+        transform: scale(1.5);
+    }
+}

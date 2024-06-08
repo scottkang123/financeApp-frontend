@@ -1,0 +1,62 @@
+.analysis-container {
+    display: flex;
+    flex-direction: column;
+    font-family: "Poppins-Medium";
+    width: 100vw;
+}
+
+.analysis-main {
+    display: flex;
+    justify-content: space-between;
+    padding: 2em 5em;
+    min-height: 60vh;
+    background: var(--background-color);
+    background: linear-gradient(180deg, var(--background-color) 0%, white 100%);
+}
+
+.analysis-main-article {
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.analysis-main-image {
+    width: 35%;
+}
+
+.analysis-main-title {
+    font-family: "Poppins-Bold";
+    font-size: 2.5em;
+}
+
+.analysis-main-subtext {
+    font-size: 1.25em;
+}
+
+.analysis-main-button {
+    margin-top: 3em;
+    width: fit-content;
+}
+
+.analysis-main-image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* TODO: Handle image sizes later when actual images are placed */
+/* For large screens */
+@media (min-width: 1920px) {
+    .analysis-main-title {
+        font-size: 4em;
+    }
+
+    .analysis-main-subtext {
+        font-size: 2em;
+    }
+
+    .analysis-main-button {
+        font-size: 2em;
+    }
+}
