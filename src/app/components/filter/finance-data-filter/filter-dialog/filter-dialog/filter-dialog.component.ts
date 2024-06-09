@@ -1,6 +1,6 @@
 // filter-dialog.component.ts
-import { Component, OnInit } from '@angular/core';
-import { MatDialogRef } from '@angular/material/dialog';
+import { Component, Inject, OnInit } from '@angular/core';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-filter-dialog',
@@ -21,10 +21,14 @@ export class FilterDialogComponent implements OnInit {
   ];
   selectedFields: any = {};
 
-  constructor(private dialogRef: MatDialogRef<FilterDialogComponent>) {}
+  constructor(
+    private dialogRef: MatDialogRef<FilterDialogComponent>,
+    @Inject(MAT_DIALOG_DATA) public data: any
+  ) {}
 
   ngOnInit(): void {
-      
+      // Initialize selectedFields with the data passed from the parent component
+    this.selectedFields = { ...this.data.selectedFields };
   }
 
   applyFilters(): void {

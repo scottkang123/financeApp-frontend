@@ -20,7 +20,8 @@ export class FinanceDataFilterComponent implements OnInit{
       const dialogRef = this.dialog.open(FilterDialogComponent, {
         width: '500px', // Adjust width as needed
         maxWidth: '90vw', // Limit maximum width
-        autoFocus: false // Disable auto focusing
+        autoFocus: false, // Disable auto focusing
+        data: { selectedFields: this.selectedFields } // Pass the selected fields
       });
 
       dialogRef.afterClosed().subscribe(result => {
@@ -38,7 +39,7 @@ export class FinanceDataFilterComponent implements OnInit{
   }
 
   getSelectedFieldCount(): number {
-    return Object.keys(this.selectedFields).length;
+    return Object.values(this.selectedFields).filter(value => value).length;
   }
 
 }
