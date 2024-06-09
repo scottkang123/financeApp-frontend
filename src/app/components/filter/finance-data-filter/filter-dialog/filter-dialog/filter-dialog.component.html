@@ -1,17 +1,11 @@
 <!-- filter-dialog.component.html -->
 <h2 mat-dialog-title>Filter Finance Data</h2>
 <mat-dialog-content>
-  <!-- Add your filter controls here -->
-  <label for="marketCap">Market Capitalization:</label>
-  <select id="marketCap">
-    <option value="all">All</option>
-    <option value="large">Large Cap</option>
-    <option value="mid">Mid Cap</option>
-    <option value="small">Small Cap</option>
-  </select>
-  <!-- Add other filter options as needed -->
+  <div *ngFor="let field of fields">
+    <mat-checkbox [(ngModel)]="selectedFields[field]">{{ field }}</mat-checkbox>
+  </div>
 </mat-dialog-content>
 <mat-dialog-actions>
   <button mat-button mat-dialog-close>Cancel</button>
-  <button mat-button [mat-dialog-close]="true">Apply</button>
+  <button mat-button [mat-dialog-close]="selectedFields">Apply</button>
 </mat-dialog-actions>
