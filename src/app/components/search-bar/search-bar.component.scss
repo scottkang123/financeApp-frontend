@@ -1,9 +1,16 @@
 /* Center the search container and add padding at the top */
 .search-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    position: relative;
     padding-top: 40px;
+    text-align: center;
+  }
+
+  .error-message{
+    color: red;
+    font-weight: bold;
+    margin-bottom: 10px;
+    width: 100%; /* Make the error message take the full width */
+    text-align: center; /* Center the error message text */
   }
   
   .mat-form{
@@ -26,5 +33,6 @@
     background-color: black; /* Change background color on hover */
     color: white; /* Change icon color on hover */
   }
+
   
 

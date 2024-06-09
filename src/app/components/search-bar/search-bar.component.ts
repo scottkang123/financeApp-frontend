@@ -1,7 +1,7 @@
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { Observable, of } from 'rxjs';
-import { map, startWith, switchMap, catchError } from 'rxjs/operators';
+import { map, startWith, switchMap, catchError, take } from 'rxjs/operators';
 import { SearchService } from '../../services/services';
 import { GetSearchStockResult$Params } from '../../services/fn/search/get-search-stock-result';
 
@@ -15,7 +15,10 @@ export class SearchBarComponent implements OnInit {
   myControl = new FormControl('');
   filteredOptions!: Observable<string[]>;
   searchResults: any[] = [];
-  
+
+  selectedOption: string | null = null; // To store the selected option
+  showMessage: boolean = false;
+  errorMessage: string = '';
 
   @Output() stockSelected = new EventEmitter<any>();
 
@@ -27,6 +30,13 @@ export class SearchBarComponent implements OnInit {
       switchMap(value => this._filter(value || ''))
     );
   }
+
+  onOptionSelected(event: any, stock: string): void {
+    if (event.isUserInput) {
+      this.selectedOption = stock; // Store the selected option
+    }
+  }
+
 
   private _filter(value: string): Observable<string[]> {
     const filterValue = value.toLowerCase();
@@ -46,18 +56,24 @@ export class SearchBarComponent implements OnInit {
 
   onSearch(): void {
     const query = this.myControl.value?.trim() || '';
+    console.log(query);
     if (query !== "") {
-      console.log("onsearch");
-      const params: GetSearchStockResult$Params = { query };
-      this.searchService.getSearchStockResult(params).subscribe(
-        (data: any[]) => {
-          console.log(data);
-          this.stockSelected.emit(data[0]);
-        },
-        (error) => {
-          console.error(error);
-        }
-      );
+      if (this.selectedOption === query) {
+        const params: GetSearchStockResult$Params = { query };
+        this.searchService.getSearchStockResult(params).subscribe(
+          (data: any[]) => {
+            console.log(data);
+            this.stockSelected.emit(data[0]);
+            this.showMessage = false; // Hide error message if valid option is selected
+          },
+          (error) => {
+            console.error(error);
+          }
+        );
+      } else {
+        this.showMessage = true;
+        this.errorMessage = "Please select a valid option from the dropdown.";
+      }
     } else {
       this.searchResults = [];
     }
