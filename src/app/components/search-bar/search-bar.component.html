@@ -1,22 +1,24 @@
-<div class="search-bar">
-    <input
-        type="text"
-        [(ngModel)]="query"
-        (keydown.enter)="onSearch()"
-        placeholder="Search..."
+<div class="searchresults">
+  <div class="search-bar">
+    <input 
+      placeholder="Search for stock"
+      nz-input
+      [(ngModel)]="query"
+      (ngModelChange)="onInputChange($event)"
+      [nzAutocomplete]="auto"
     />
-    <button nz-button  (click)="onSearch()">
-        <i nz-icon nzType="search"></i>
+    
+    <button nz-button (click)="onSearch()">
+      <i nz-icon nzType="plus"></i>
     </button>
+
+    <nz-autocomplete #auto>
+      <nz-auto-option *ngFor="let option of filteredOptions" [nzValue]="option.name">
+        {{ option.name }}
+      </nz-auto-option>
+    </nz-autocomplete>
+
+  </div>
 </div>
 
-<div class = "search-result" *ngIf="searchResults.length > 0">
-  <h2>Search Results</h2>
-  <ul>
-    <li *ngFor="let result of searchResults">
-      <!-- Display stock data here -->
-      <p>{{ result.name }} - {{ result.symbol }}</p>
-      <!-- Add more details as needed -->
-    </li>
-  </ul>
-</div>
+

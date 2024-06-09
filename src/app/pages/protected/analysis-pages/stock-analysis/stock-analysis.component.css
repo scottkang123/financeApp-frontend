@@ -6,3 +6,13 @@
     margin-top: 40px; /* Add some margin at the top */
     margin-bottom: 20px; /* Add margin at the bottom to create space */
 }
+
+.search-bar{
+    position: relative;
+    z-index: 999;
+}
+
+.search-result {
+    position: relative; /* Ensure that z-index works */
+    z-index: 0; /* Set a lower z-index value */
+}

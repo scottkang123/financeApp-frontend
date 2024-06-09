@@ -1,0 +1,18 @@
+/* finance-data-filter.component.css */
+.popup-container {
+    padding-top: 80px;
+    position: relative; /* Position relative to its container */
+    display: flex;
+    justify-content: center;
+    /* Horizontally center */
+    align-items: center;
+    /* Vertically center */
+  }
+  
+.filter-button{
+    border-radius: 15px;
+    font-family: 'Poppins-Medium';
+    border: 0.5px solid black;
+    padding: 5px 10px; /* Adjust padding as needed */
+
+}

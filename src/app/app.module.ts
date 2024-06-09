@@ -25,6 +25,9 @@ import { HeaderComponent } from './components/header/header/header.component';
 import { ProtectedRoutingModule } from './pages/protected/protected-routing.module';
 import { PublicRoutingModule } from './pages/public/public-routing.module';
 import { StockAnalysisComponent } from './pages/protected/analysis-pages/stock-analysis/stock-analysis.component';
+import { FinanceDataFilterComponent } from './components/filter/finance-data-filter/finance-data-filter.component';
+import { FilterDialogComponent } from './components/filter/finance-data-filter/filter-dialog/filter-dialog.component';
+
 import { NZ_I18N } from 'ng-zorro-antd/i18n';
 import { en_US } from 'ng-zorro-antd/i18n';
 import en from '@angular/common/locales/en';
@@ -57,6 +60,8 @@ export function kcFactory(kcService: KeycloakService){
         UserHomeComponent,
         UserHeaderComponent,
         SearchBarComponent,
+        FinanceDataFilterComponent,
+        FilterDialogComponent,
         AnalysisComponent,
         HeaderComponent,
         UnauthHeaderComponent,

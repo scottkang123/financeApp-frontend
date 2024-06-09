@@ -1,34 +1,57 @@
-
-<div class = "page-title">
+<app-search-bar></app-search-bar>
+<div>
+    hi
+</div>
+<div>
+    hi
+</div>
+<div>
+    hi
+</div>
+<div>
+    hi
+</div>
+<div>
+    hi
+</div>
+<div>
+    hi
+</div>
+<!-- <div class = "page-title">
     Finance Explorer
 </div>
-<app-search-bar (stockSelected)="addStock($event)"></app-search-bar>
-<div>
-    <div *ngIf="selectedStocks.length > 0">
-        <div *ngFor="let stock of selectedStocks" class="selected-stock">
-            <span>{{ stock.name }}</span>
-            <button (click)="removeStock(stock)">X</button>
-        </div>
-    
-        <table>
-            <thead>
-                <tr>
-                    <th>Name</th>
-                    <th>Symbol</th>
-                    <th>Market Capitalization</th>
-                    <th>Price</th>
-            <!-- Add other headers as needed -->
-                </tr>
-            </thead>
-            <tbody>
-                <tr *ngFor="let stock of selectedStocks">
-                    <td>{{ stock.name }}</td>
-                    <td>{{ stock.symbol }}</td>
-                    <td>{{ stock.marketCapitalization }}</td>
-                    <td>{{ stock.price }}</td>
-            <!-- Add other stock details as needed -->
-                </tr>
-            </tbody>
-        </table>
-    </div>
+<app-search-bar></app-search-bar>
+<div class = "search-result">
+    hi
 </div>
+ -->
+
+
+
+<!-- <div *ngIf="selectedStocks.length > 0">
+    <div *ngFor="let stock of selectedStocks" class="selected-stock">
+        <span>{{ stock.name }}</span>
+        <button (click)="removeStock(stock)">X</button>
+    </div>
+    
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Symbol</th>
+                <th>Market Capitalization</th>
+                <th>Price</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let stock of selectedStocks">
+                <td>{{ stock.name }}</td>
+                <td>{{ stock.symbol }}</td>
+                <td>{{ stock.marketCapitalization }}</td>
+                <td>{{ stock.price }}</td>
+
+            </tr>
+        </tbody>
+    </table>
+</div> -->
