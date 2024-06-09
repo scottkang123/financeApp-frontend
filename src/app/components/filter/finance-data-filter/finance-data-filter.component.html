@@ -1,0 +1,5 @@
+<div class="popup-container">
+    <button mat-raised-button class="filter-button" (click)="openDialog()">Filter Finance Data</button>
+    <span class="selected-count" *ngIf="getSelectedFieldCount() > 0">{{ getSelectedFieldCount() }}</span>
+
+</div>

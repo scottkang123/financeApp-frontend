@@ -1,0 +1,30 @@
+/* Center the search container and add padding at the top */
+.search-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 40px;
+  }
+  
+  .mat-form{
+    padding-right:5px;
+  }
+
+  /* Adjust the position and style of the search button */
+  .search-button {
+    width: 55px; /* Set button width */
+    height: 55px; /* Set button height */
+    border: none; /* Remove button border */
+    background-color: #ccc; /* Set button background color */
+    border-radius: 0; /* Remove button border radius */
+    cursor: pointer; /* Set cursor to pointer */
+    transition: background-color 0.3s; /* Add transition for hover effect */
+
+  }
+
+  .search-button:hover {
+    background-color: black; /* Change background color on hover */
+    color: white; /* Change icon color on hover */
+  }
+  
+
