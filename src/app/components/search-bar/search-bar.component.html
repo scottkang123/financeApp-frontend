@@ -1,9 +1,26 @@
-<div class="search-bar">
-    <input
-        type="text"
-        [(ngModel)]="query"
-        (keydown.enter)="onSearch()"
-        placeholder="Search..."
-    />
-    <button (click)="onSearch()">Search!</button>
+<div class="search-container">
+
+  <form>
+
+    <mat-form-field appearance="outline" class="mat-form">
+
+      <input type="text"
+             placeholder="Search for a stock"
+             matInput
+             [formControl]="myControl"
+             [matAutocomplete]="auto">
+
+      <mat-autocomplete #auto="matAutocomplete">
+        <mat-option *ngFor="let stock of filteredOptions | async" [value]="stock">{{stock}}</mat-option>
+      </mat-autocomplete>
+      
+    </mat-form-field>
+
+    <button class="search-button" (click)="onSearch()">
+      <i class="fas fa-plus"></i>
+    </button>
+
+
+  </form>
+  
 </div>

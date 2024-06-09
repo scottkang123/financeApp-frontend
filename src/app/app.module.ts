@@ -32,8 +32,10 @@ import { CommunityComponent } from './pages/public/community/community.component
 import { SupportComponent } from './pages/public/support/support.component';
 import { ReclaimComponent } from './pages/public/reclaim/reclaim.component';
 import { SignInComponent } from './pages/public/sign-in/sign-in.component';
-
-
+import { StockAnalysisComponent } from './pages/protected/analysis/stock-analysis/stock-analysis.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations'; // Import BrowserAnimationsModule
+import { FilterDialogComponent } from './components/filter/finance-data-filter/filter-dialog/filter-dialog/filter-dialog.component';
+import { FinanceDataFilterComponent } from './components/filter/finance-data-filter/finance-data-filter.component';
 
 const ngxUiLoaderConfig: NgxUiLoaderConfig = {
   text: "Loading..",
@@ -67,20 +69,14 @@ export function kcFactory(kcService: KeycloakService){
         SupportComponent,
         ReclaimComponent,
         SignInComponent,
-        FooterComponent
+        FooterComponent,
+        StockAnalysisComponent,
+        FilterDialogComponent,
+        FinanceDataFilterComponent
     ],
-    providers: [
-        provideHttpClient(withInterceptors([httpTokenInterceptor])),
-        {
-            provide:APP_INITIALIZER,
-            deps: [KeycloakService],
-            useFactory: kcFactory,
-            multi: true
-        }
-    ], //HttpClient],   //multi because spring has its own interceptors as well but no need to provide if using functional approach to implement the interceptor
-    bootstrap: [AppComponent],
     imports: [
         BrowserModule,
+        BrowserAnimationsModule, 
         AppRoutingModule,
         CommonModule,
         MaterialModule,
@@ -90,7 +86,17 @@ export function kcFactory(kcService: KeycloakService){
         FormsModule,
         CodeInputModule,
         NgxUiLoaderModule.forRoot(ngxUiLoaderConfig)
-    ]
+    ],
+    providers: [
+      provideHttpClient(withInterceptors([httpTokenInterceptor])),
+      {
+          provide:APP_INITIALIZER,
+          deps: [KeycloakService],
+          useFactory: kcFactory,
+          multi: true
+      },
+      ], //HttpClient],   //multi because spring has its own interceptors as well but no need to provide if using functional approach to implement the interceptor
+      bootstrap: [AppComponent]
 })
 export class AppModule {
   constructor(

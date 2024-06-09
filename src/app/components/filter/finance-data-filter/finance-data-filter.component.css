@@ -1,0 +1,35 @@
+.popup-container {
+  padding-top: 30px;
+  position: relative; /* Position relative to its container */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.filter-button {
+  border-radius: 15px;
+  font-family: 'Poppins-Bold';
+  border: 1px solid black; /* Add a defined border */
+  padding: 5px 10px; /* Adjust padding as needed */
+  box-shadow: none; /* Remove shadow effect */
+}
+
+/* Change button background and font color on hover */
+.filter-button:hover {
+  background-color: black;
+  color: white;
+}
+
+.selected-count {
+  background-color: #ccc; /* Grey circle background color */
+  border-radius: 50%; /* Rounded shape */
+  font-family: 'Poppins-Bold'; /* Set font to Poppins-Bold */
+  padding: 8px; /* Adjust padding */
+  font-size: 16px; /* Adjust font size */
+  margin-left: 10px; /* Add margin to separate from button */
+  width: 35px; /* Ensure width and height are equal */
+  height: 35px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
