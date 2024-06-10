@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { FilterDialogComponent } from './filter-dialog/filter-dialog/filter-dialog.component';
 
@@ -11,6 +11,8 @@ export class FinanceDataFilterComponent implements OnInit{
 
   isPopupOpen: boolean = false;
   selectedFields: any = {}; // To store selected fields
+
+  @Output() fieldsSelected = new EventEmitter<any>();
 
   constructor(public dialog: MatDialog) { }
 
@@ -27,6 +29,7 @@ export class FinanceDataFilterComponent implements OnInit{
       dialogRef.afterClosed().subscribe(result => {
         if (result) {
           this.selectedFields = result;
+          this.fieldsSelected.emit(this.selectedFields); // Emit the selected fields
           console.log('Selected fields:', this.selectedFields);
         }
         this.isPopupOpen = false;

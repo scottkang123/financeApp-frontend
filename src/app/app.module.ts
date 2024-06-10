@@ -37,6 +37,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations'; 
 import { FilterDialogComponent } from './components/filter/finance-data-filter/filter-dialog/filter-dialog/filter-dialog.component';
 import { FinanceDataFilterComponent } from './components/filter/finance-data-filter/finance-data-filter.component';
 
+import { MatSortModule } from '@angular/material/sort';
+
 const ngxUiLoaderConfig: NgxUiLoaderConfig = {
   text: "Loading..",
   textColor: "#FFFFFF",
@@ -85,6 +87,7 @@ export function kcFactory(kcService: KeycloakService){
         ReactiveFormsModule,
         FormsModule,
         CodeInputModule,
+        MatSortModule,
         NgxUiLoaderModule.forRoot(ngxUiLoaderConfig)
     ],
     providers: [

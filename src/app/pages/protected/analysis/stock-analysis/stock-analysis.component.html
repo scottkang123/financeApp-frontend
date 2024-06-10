@@ -2,5 +2,44 @@
 <div class="page-title">
   Finance Explorer
 </div>
-<app-search-bar></app-search-bar>
-<app-finance-data-filter></app-finance-data-filter>
+
+<app-search-bar (stockSelected)="addStock($event)"></app-search-bar>
+<app-finance-data-filter (fieldsSelected)="updateFields($event)"></app-finance-data-filter>
+
+<div class = "table">
+  
+  <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
+    
+    <!-- Dynamic column definition -->
+    <ng-container [matColumnDef]="field" *ngFor="let field of getFilteredFields()">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header="{{ field }}">{{ field }}</th>
+      <td mat-cell *matCellDef="let stock">{{ stock[field]?.toString() }}</td>
+    </ng-container>
+    
+    <!-- Stock name column -->
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header="name">Name</th>
+      <td mat-cell *matCellDef="let stock">
+        <button mat-icon-button (click)="removeStock(stock); $event.stopPropagation()">
+          <mat-icon aria-label="Remove">delete</mat-icon>
+        </button>
+        <span>{{ stock.name }}</span>
+      </td>
+    </ng-container>
+    
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+  </table>
+
+</div>
+
+<!-- <div *ngIf="selectedStocks.length > 0">
+  <h3>Selected Stocks:</h3>
+  <ul>
+    <li *ngFor="let stock of selectedStocks">
+      {{ stock.name }} ({{ stock.symbol }}) 
+      <button (click)="removeStock(stock)">Remove</button>
+    </li>
+  </ul>
+</div> -->
