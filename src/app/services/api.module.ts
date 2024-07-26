@@ -4,12 +4,9 @@ import { NgModule, ModuleWithProviders, SkipSelf, Optional } from '@angular/core
 import { HttpClient } from '@angular/common/http';
 import { ApiConfiguration, ApiConfigurationParams } from './api-configuration';
 
-import { ProfileControllerService } from './services/profile-controller.service';
-import { StockEntityControllerService } from './services/stock-entity-controller.service';
-import { StockSearchControllerService } from './services/stock-search-controller.service';
-import { StockService } from './services/stock.service';
-import { UserService } from './services/user.service';
-import { SearchService } from './services/search.service';
+import { StockControllerService } from './services/stock-controller.service';
+import { EarningsCalenderControllerService } from './services/earnings-calender-controller.service';
+import { SearchControllerService } from './services/search-controller.service';
 
 /**
  * Module that provides all services and configuration.
@@ -19,12 +16,9 @@ import { SearchService } from './services/search.service';
   exports: [],
   declarations: [],
   providers: [
-    ProfileControllerService,
-    StockEntityControllerService,
-    StockSearchControllerService,
-    StockService,
-    UserService,
-    SearchService,
+    StockControllerService,
+    EarningsCalenderControllerService,
+    SearchControllerService,
     ApiConfiguration
   ],
 })

@@ -1,6 +1,3 @@
-export { ProfileControllerService } from './services/profile-controller.service';
-export { StockEntityControllerService } from './services/stock-entity-controller.service';
-export { StockSearchControllerService } from './services/stock-search-controller.service';
-export { StockService } from './services/stock.service';
-export { UserService } from './services/user.service';
-export { SearchService } from './services/search.service';
+export { StockControllerService } from './services/stock-controller.service';
+export { EarningsCalenderControllerService } from './services/earnings-calender-controller.service';
+export { SearchControllerService } from './services/search-controller.service';

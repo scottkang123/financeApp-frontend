@@ -36,8 +36,14 @@ import { StockAnalysisComponent } from './pages/protected/analysis/stock-analysi
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'; // Import BrowserAnimationsModule
 import { FilterDialogComponent } from './components/filter/finance-data-filter/filter-dialog/filter-dialog/filter-dialog.component';
 import { FinanceDataFilterComponent } from './components/filter/finance-data-filter/finance-data-filter.component';
+import { CalendarComponent } from './components/calendar/calendar.component';
+import { NoteDialogComponent } from './components/calendar/calendar.component';
+import { CalendarPageComponent } from './pages/protected/calendar-page/calendar.component';
 
 import { MatSortModule } from '@angular/material/sort';
+
+import { FullCalendarModule } from '@fullcalendar/angular';
+
 
 const ngxUiLoaderConfig: NgxUiLoaderConfig = {
   text: "Loading..",
@@ -74,7 +80,10 @@ export function kcFactory(kcService: KeycloakService){
         FooterComponent,
         StockAnalysisComponent,
         FilterDialogComponent,
-        FinanceDataFilterComponent
+        FinanceDataFilterComponent,
+        CalendarComponent,
+        NoteDialogComponent,
+        CalendarPageComponent
     ],
     imports: [
         BrowserModule,
@@ -88,7 +97,8 @@ export function kcFactory(kcService: KeycloakService){
         FormsModule,
         CodeInputModule,
         MatSortModule,
-        NgxUiLoaderModule.forRoot(ngxUiLoaderConfig)
+        NgxUiLoaderModule.forRoot(ngxUiLoaderConfig),
+        FullCalendarModule
     ],
     providers: [
       provideHttpClient(withInterceptors([httpTokenInterceptor])),

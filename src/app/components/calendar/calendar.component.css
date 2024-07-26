@@ -1,0 +1,17 @@
+/* Adjust the style of the calendar header */
+.fc-toolbar-title {
+    text-align: center;
+  }
+  
+  .mat-form-field {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+  
+  .loading-spinner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  

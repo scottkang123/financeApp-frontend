@@ -33,3 +33,8 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 2. npm i bootstrap@5.3.3
 3. npm install @fortawesome/fontawesome-free
 4. npm i ng-openapi-gen
+
+
+## Note for OpenAPI ##
+
+For some reason, had to change the response type from blob to json in the fn -> search-controller -> get-search-stock-results.ts

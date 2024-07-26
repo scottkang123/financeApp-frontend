@@ -2,8 +2,8 @@ import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { Observable, of } from 'rxjs';
 import { map, startWith, switchMap, catchError, take } from 'rxjs/operators';
-import { SearchService } from '../../services/services';
-import { GetSearchStockResult$Params } from '../../services/fn/search/get-search-stock-result';
+import { SearchControllerService } from '../../services/services';
+import { GetSearchStockResults$Params } from '../../services/fn/search-controller/get-search-stock-results';
 
 @Component({
   selector: 'app-search-bar',
@@ -22,7 +22,7 @@ export class SearchBarComponent implements OnInit {
 
   @Output() stockSelected = new EventEmitter<any>();
 
-  constructor(private searchService: SearchService) { }
+  constructor(private searchService: SearchControllerService) { }
 
   ngOnInit(): void {
     this.filteredOptions = this.myControl.valueChanges.pipe(
@@ -41,8 +41,8 @@ export class SearchBarComponent implements OnInit {
   private _filter(value: string): Observable<string[]> {
     const filterValue = value.toLowerCase();
     if (value.trim() !== "") {
-      const params: GetSearchStockResult$Params = { query: value };
-      return this.searchService.getSearchStockResult(params).pipe(
+      const params: GetSearchStockResults$Params = { query: value };
+      return this.searchService.getSearchStockResults(params).pipe(
         map((data: any[]) => data.map(stock => stock.name)),
         catchError(error => {
           console.error(error);
@@ -59,8 +59,8 @@ export class SearchBarComponent implements OnInit {
     console.log(query);
     if (query !== "") {
       if (this.selectedOption === query) {
-        const params: GetSearchStockResult$Params = { query };
-        this.searchService.getSearchStockResult(params).subscribe(
+        const params: GetSearchStockResults$Params = { query };
+        this.searchService.getSearchStockResults(params).subscribe(
           (data: any[]) => {
             console.log(data);
             this.stockSelected.emit(data[0]);
